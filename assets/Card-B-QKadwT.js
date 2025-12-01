@@ -1,0 +1,1 @@
+import{j as e}from"./index-BQehiTWj.js";function s({children:r,hover:o}){return e.jsx("div",{className:`rounded-xl border border-gray-200 p-6 bg-white transition-all ${o?"group hover:shadow-lg hover:border-gray-300":""}`,children:r})}export{s as C};
