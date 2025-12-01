@@ -41,7 +41,7 @@ function RoutesWithDelay() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/yantriq">
       <Navbar />
       <RoutesWithDelay />
       <Footer />
