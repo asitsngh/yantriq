@@ -29,51 +29,51 @@ export default function Contact() {
 
   const contactInfo = [
     {
-      icon: <Mail className="w-6 h-6" />,
+      icon: <Mail className="w-6 h-6 text-[#2F4F45]" />,
       title: 'Email',
-      value: 'info@yantriq.com',
-      link: 'mailto:info@yantriq.com',
+      value: 'sales@yantriq.in',
+      link: 'mailto:sales@yantriq.in',
     },
     {
-      icon: <Phone className="w-6 h-6" />,
+      icon: <Phone className="w-6 h-6 text-[#2F4F45]" />,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      value: '+91-022-35978445',
+      link: 'tel:+9102235978445',
     },
     {
-      icon: <MapPin className="w-6 h-6" />,
+      icon: <MapPin className="w-6 h-6 text-[#2F4F45]" />,
       title: 'Location',
-      value: 'San Francisco, CA',
-      link: '#',
+      value: 'F-311, KAILAS INDUSTRIAL COMPLEX, PARK SITE, VIKHROLI (W), MUMBAI - 400 079, INDIA',
+      link: 'https://maps.app.goo.gl/sLQLUz5PYaPJU6qH8',
     },
   ];
 
   return (
     <div>
-      <section className="bg-gradient-to-br from-blue-50 via-white to-cyan-50 py-20 lg:py-32">
+      <section className="bg-gradient-to-br from-[rgba(47,79,69,0.03)] via-white to-[rgba(95,15,18,0.03)] py-20 lg:pt-32 lg:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">Get In Touch</h1>
+            <h1 className="text-5xl font-bold text-[#2F4F45] mb-6">Get In Touch</h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Ready to transform your business? Let's start a conversation about your goals and
-              how we can help you achieve them.
+              Ready to discuss your requirements? Connect with us to explore 
+              how our solutions can support your operational and technical goals.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-20 lg:py-32">
+      <section className="py-20 lg:pt-20 lg:pb-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+              <h2 className="text-3xl font-bold text-[#2F4F45] mb-6">Send Us a Message</h2>
               <Card>
                 {submitted ? (
                   <div className="text-center py-8">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Send className="w-8 h-8 text-green-600" />
+                    <div className="w-16 h-16 bg-[rgba(47,79,69,0.08)] rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Send className="w-8 h-8 text-[#2F4F45]" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
+                    <h3 className="text-2xl font-bold text-[#2F4F45] mb-2">Thank You!</h3>
                     <p className="text-gray-600">
                       We've received your message and will get back to you soon.
                     </p>
@@ -91,7 +91,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2F4F45] focus:border-transparent outline-none transition-all"
                       />
                     </div>
                     <div>
@@ -105,7 +105,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2F4F45] focus:border-transparent outline-none transition-all"
                       />
                     </div>
                     <div>
@@ -118,7 +118,7 @@ export default function Contact() {
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2F4F45] focus:border-transparent outline-none transition-all"
                       />
                     </div>
                     <div>
@@ -132,12 +132,12 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         rows={5}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2F4F45] focus:border-transparent outline-none transition-all resize-none"
                       ></textarea>
                     </div>
                     <button
                       type="submit"
-                      className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all flex items-center justify-center"
+                      className="w-full px-8 py-4 bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] text-white rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all flex items-center justify-center"
                     >
                       Send Message
                       <Send className="ml-2 w-5 h-5" />
@@ -148,7 +148,7 @@ export default function Contact() {
             </div>
 
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
+              <h2 className="text-3xl font-bold text-[#2F4F45] mb-6">Contact Information</h2>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <Card key={index} hover>
@@ -156,11 +156,11 @@ export default function Contact() {
                       href={info.link}
                       className="flex items-start space-x-4 group"
                     >
-                      <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                      <div className="flex-shrink-0 w-12 h-12 bg-[rgba(47,79,69,0.08)] rounded-lg flex items-center justify-center text-[#2F4F45] group-hover:bg-[#5F0F12] group-hover:text-white transition-all">
                         {info.icon}
                       </div>
                       <div>
-                        <h3 className="font-semibold text-gray-900 mb-1">{info.title}</h3>
+                        <h3 className="font-semibold text-[#2F4F45] mb-1">{info.title}</h3>
                         <p className="text-gray-600">{info.value}</p>
                       </div>
                     </a>
@@ -170,11 +170,11 @@ export default function Contact() {
 
               <div className="mt-8">
                 <Card>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Office Hours</h3>
+                  <h3 className="text-xl font-bold text-[#2F4F45] mb-4">Office Hours (IST)</h3>
                   <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
                       <span>Monday - Friday</span>
-                      <span className="font-medium">9:00 AM - 6:00 PM</span>
+                      <span className="font-medium">9:30 AM - 6:00 PM</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Saturday</span>
