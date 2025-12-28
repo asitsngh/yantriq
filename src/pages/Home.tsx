@@ -65,9 +65,8 @@ export default function Home() {
   ];
 
   const stats = [
-    { value: '500+', label: 'Projects Completed' },
-    { value: '98%', label: 'Client Satisfaction' },
-    { value: '50+', label: 'Team Members' },
+    { value: '100+', label: 'Projects Completed' },
+    { value: '80%+', label: 'Repeat Clients' },
     { value: '25+', label: 'Years Experience' },
   ];
 
@@ -83,19 +82,17 @@ export default function Home() {
                 <span>Next-Generation Technology</span>
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Delivering {' '}
                 <span className="bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] bg-clip-text text-transparent">
-                  Accuracy. 
+                  Precision-Driven. 
                 </span>
               </h1>
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Elevating {' '}
                 <span className="bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] bg-clip-text text-transparent">
-                  Quality.
+                  Quality-Assured.
                 </span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                Enabling industries to achieve safer, smarter, and more efficient operations with cutting-edge engineering systems.
+                Enabling industries to achieve safer, smarter, and more efficient operations with cutting-edge non-destructive testing systems for critical industrial applications.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -128,7 +125,7 @@ export default function Home() {
 
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid gap-8 grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] place-items-center">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] bg-clip-text text-transparent mb-2">
@@ -167,17 +164,17 @@ export default function Home() {
 
       <section className="py-20 lg:py-32 bg-gradient-to-br from-[#2F4F45] to-[#5F0F12] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Ready to Transform Your Business?
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            Ready to advance inspection excellence?
           </h2>
           <p className="text-xl mb-8 text-white">
-            Join hundreds of companies that trust Yantriq for their technology needs.
+            Work with Yantriq to implement globally recognized NDT solutions.
           </p>
           <Link
             to="/contact"
             className="inline-flex items-center px-8 py-4 bg-white text-[#2F4F45] rounded-full font-medium hover:shadow-xl hover:scale-105 transition-all"
           >
-            Start Your Journey
+            Reach Out to Us
             <ArrowRight className="ml-2 w-5 h-5" />
           </Link>
         </div>

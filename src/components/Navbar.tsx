@@ -19,14 +19,18 @@ export default function Navbar() {
   return (
     <nav className="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center space-x-2 group">
-            {/* logo wrapper: gradient using your two hex colors */}
-            <div className="rounded-lg group-hover:scale-110 transition-transform">
-              <img src={logo} alt="Yantriq logo" className="w-8 h-8 object-contain" />
-            </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] bg-clip-text text-transparent">
-              Yantriq Systems Private Limited
+        <div className="flex justify-between items-center h-20 lg:h-24">
+          <Link to="/" className="flex items-center space-x-3 group">
+            <img
+              src={logo}
+              alt="Yantriq logo"
+              className="w-10 h-10 lg:w-12 lg:h-12 object-contain"
+            />
+
+            <span className="block text-2xl lg:text-3xl xl:text-4xl font-bold leading-[1.25]">
+              <span className="bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] bg-clip-text text-transparent">
+                Yantriq Systems Private Limited
+              </span>
             </span>
           </Link>
 
@@ -35,7 +39,7 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors relative ${
+                className={`text-base lg:text-lg font-medium transition-colors relative transition-colors relative ${
                   isActive(link.path)
                     ? 'text-[#2F4F45]'
                     : 'text-gray-700 hover:text-[#2F4F45]'

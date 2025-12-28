@@ -13,7 +13,7 @@ export default function About() {
       icon: <Target className="w-10 h-10" />,
       title: 'Mission Driven',
       description:
-        'To empower businesses with innovative technology solutions that create lasting impact and drive meaningful change.',
+        'Deliver internationally compliant NDT solutions, ensuring dependable service quality while enhancing overall production efficiency.',
     },
     {
       icon: <Users className="w-10 h-10" />,
@@ -40,13 +40,35 @@ export default function About() {
       name: 'ScanMaster Systems Ltd.',
       role: 'Israel',
       image: scanmasterLogo,
-      description:
-        `ScanMaster is a global leader in the development, design and manufacturing of automated ultrasonic inspection systems. Their technologically innovative systems have been installed with prime customers worldwide.\n\nWith more than three decades of inspection system expertise, ScanMaster has built up a large, knowledgeable and strong team of experts with diverse technology skills and application expertise. Delivering inspection systems to critical applications, with a strong commitment to quality, service and customer support has been a cornerstone to success.`,
+      website: 'https://scanmaster-irt.com/about-scanmaster-systems/',
+      description: `
+            <p>
+              ScanMaster Systems, originally founded as Inspection Research & Technologies (IRT), is a global leader in the development, design and manufacturing of automated ultrasonic inspection systems. Our technologically innovative systems have been installed with prime customers worldwide.
+            </p>
+            <br/>
+            <p>
+              Each ScanMaster ultrasonic inspection system has a number of core modules which are integrated in application-specific configurations delivering the right solution to address the specific requirements and relevant standards. These modules include advanced industrial PC-based digital ultrasonic instrumentation, mechanical manipulation systems, servo motion control hardware and production-oriented software packages.
+            </p>
+            <br/>
+            <p>
+              With more than three decades of inspection system expertise, ScanMaster has built up a large, knowledgeable and strong team of experts with diverse technology skills and application expertise. Delivering inspection systems to critical applications, our strong commitment to quality, service and customer support has been a cornerstone to our success.
+            </p>
+            <br/><br/>
+            <h4><b>Markets ScanMaster Serves</b></h4>
+            <p>
+              ScanMaster delivers powerful ultrasonic inspection systems in the fields of aerospace, automotive, railways, steel, and power generation among others.
+            </p>
+            <br/>
+            <p>
+              Our innovative systems are available for a multitude of environments including laboratories and production facilities and enable the inspection of components both in production prior to use and while in service.
+            </p>
+      `,
     },
     {
       name: 'Lismar Engineering BV',
       role: 'The Netherlands',
       image: lismarLogo,
+      website: 'https://www.lismar.com/about/',
       description:
         `LISMAR is a strong growing and dynamic company and is leading in Roll Inspection Systems. LISMAR's automatic Inspection Systems detect Surface defects through Eddy Current Technology (ET) and Surface Wave Technology (SW). For Subsurface defects, Ultrasonic Technology (UT) is applied.\n\n"LISMAR is your trusted partner in Roll Quality Control"`,
     },
@@ -54,6 +76,7 @@ export default function About() {
       name: 'Comex AS',
       role: 'Norway',
       image: comexLogo,
+      website: 'https://comex-group.com/about-us/',
       description:
         `Comex sorting systems employ the state-of-the-art sensor technologies utilizing X-rays, optical sensors and reflectance in UV and IR light using hyperspectral imaging. These are widely applied in mining and mineral industry for separation of different minerals like coal, quartz, calcite and pre-concentration of metal ores like gold, copper, zinc-lead, tin, chrome and iron ores. The solution offers environment friendly, low cost and highly efficient sorting.`,
     },
@@ -125,9 +148,9 @@ export default function About() {
               <span className="font-bold text-[#2F4F45]">Automotive</span>,{' '}
               <span className="font-bold text-[#5F0F12]">Steel & Pipe</span>, and{' '}
               <span className="font-bold text-[#2F4F45]">Bearing</span> industries. With{' '}
-              <span className="font-bold text-[#5F0F12]">over 50 systems installed across the country</span>, several of
+              <span className="font-bold text-[#5F0F12]">nearly 100 systems installed across the country</span>, several of
               our installations have been operating reliably for more than{' '}
-              <span className="font-bold text-[#2F4F45]">16 years</span>.
+              <span className="font-bold text-[#2F4F45]">20 years</span>.
             </p>
           </div>
         </div>
@@ -193,34 +216,69 @@ export default function About() {
 
       {/* Modal Popup */}
       {selectedPartner !== null && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-8 relative">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-6">
+          <div className="bg-white rounded-2xl max-w-4xl w-full p-10 relative shadow-xl">
+            
+            {/* Close button */}
             <button
               onClick={() => setSelectedPartner(null)}
-              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              className="absolute top-5 right-5 p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              aria-label="Close modal"
             >
               <X className="w-6 h-6 text-gray-600" />
             </button>
 
-            <div className="flex items-center gap-6 mb-6">
-              <div className="w-24 h-24 flex-shrink-0 rounded-lg flex items-center justify-center overflow-hidden">
+            {/* Header */}
+            <div className="flex items-center gap-8 mb-8">
+              <div className="w-28 h-28 flex-shrink-0 rounded-xl flex items-center justify-center overflow-hidden bg-gray-50">
                 <img
                   src={team[selectedPartner].image}
                   alt={team[selectedPartner].name}
                   className="h-full object-contain"
                 />
               </div>
+
               <div>
-                <h3 className="text-2xl font-bold text-[#2F4F45] mb-1">
+                <h3 className="text-3xl font-bold text-[#2F4F45] mb-1">
                   {team[selectedPartner].name}
                 </h3>
-                <p className="text-[#5F0F12] font-medium">{team[selectedPartner].role}</p>
+                <p className="text-[#5F0F12] font-medium text-lg">
+                  {team[selectedPartner].role}
+                </p>
               </div>
             </div>
 
-            <p className="text-gray-700 leading-relaxed mb-6 whitespace-pre-wrap">
-              {team[selectedPartner].description}
-            </p>
+            {/* Description */}
+            <div
+              className="prose max-w-none text-gray-700"
+              dangerouslySetInnerHTML={{
+                __html: team[selectedPartner].description,
+              }}
+            />
+
+            {/* Learn more link */}
+            <div className="mt-6">
+              <a
+                href={team[selectedPartner].website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[#2F4F45] font-medium hover:underline"
+              >
+                Learn more
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M14 3h7v7" />
+                  <path d="M10 14L21 3" />
+                  <path d="M21 14v7h-7" />
+                  <path d="M3 10v11h11" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       )}
@@ -236,9 +294,9 @@ export default function About() {
               excellence, and customer satisfaction.
             </p>
             <p>
-              From our early projects to the more than 50 systems operating successfully across India today, our journey has 
+              From our early projects to the nearly 100 systems operating successfully across India today, our journey has 
               been shaped by trust, long-term partnerships, and a dedication to solving real industry challenges. Many of our 
-              installations have been running efficiently for over 16 years—underscoring our commitment to precision and 
+              installations have been running efficiently for over 20 years—underscoring our commitment to precision and 
               dependable support.
             </p>
             <p>

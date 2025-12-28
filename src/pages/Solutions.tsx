@@ -1,133 +1,140 @@
-import { Cloud, Brain, BarChart, Shield, Code, Smartphone } from 'lucide-react';
-import Card from '../components/Card';
+import { useState } from 'react';
+import scanmasterLogo from '../assets/scanmaster_logo.png';
+import lismarLogo from '../assets/lismar_logo1.webp';
+import comexLogo from '../assets/Comex-AS.webp';
+
 
 export default function Solutions() {
-  const solutions = [
+  const oems = [
     {
-      icon: <Cloud className="w-12 h-12 text-[#2F4F45]" />,
-      title: 'Cloud Solutions',
-      description:
-        'Scalable cloud infrastructure and migration services that optimize performance and reduce costs.',
-      features: ['AWS & Azure Integration', 'Cloud Migration', 'DevOps Automation', '24/7 Support'],
+      name: 'ScanMaster Systems Ltd.',
+      logo: scanmasterLogo,
+      website: 'https://scanmaster-irt.com/products/',
+      description: `
+        <p>
+        ScanMaster is a global leader in the development, design and manufacturing of automated ultrasonic inspection systems. Our technologically innovative systems have been installed with prime customers worldwide. 
+        </p>
+        <br/><br/>
+        <p>
+        Each ScanMaster ultrasonic inspection system has a number of core modules which are integrated in application-specific configurations delivering the right solution to address the specific requirements and relevant standards. These modules include advanced industrial PC-based digital ultrasonic instrumentation, mechanical manipulation systems, servo motion control hardware and production-oriented software packages. 
+        </p>
+        <br/><br/>
+        <p>
+        With more than three decades of inspection system expertise, ScanMaster has built up a large, knowledgeable and strong team of experts with diverse technology skills and application expertise. Delivering inspection systems to critical applications, our strong commitment to quality, service and customer support has been a cornerstone to our success. 
+        ScanMaster has installed more than 400 of ultrasonic inspection systems with prime customers at different locations all over the world. Our major customers come from various industries such as: aerospace and aircraft, automotive, railroad, Steel, pipes and tubes, energy, forging, casting and ordnance etc.
+        </p>
+      `,
     },
     {
-      icon: <Brain className="w-12 h-12 text-[#2F4F45]" />,
-      title: 'AI & Machine Learning',
-      description:
-        'Intelligent automation and predictive analytics to unlock insights and drive decision-making.',
-      features: ['Predictive Analytics', 'Natural Language Processing', 'Computer Vision', 'AI Consulting'],
+      name: 'LISMAR Engineering BV',
+      logo: lismarLogo,
+      website: 'https://www.lismar.com/products/',
+      description: `
+        <p>
+        Lismar is a leading manufacturer of roll inspection system installed on roll grinding machines, having most comprehensive range of solution to meet the inspection requirements in steel and aluminium industries. They are fully dedicated to roll inspection technology and have supplied large numbers of such system worldwide including India.  
+        </p>      
+      `,
     },
     {
-      icon: <BarChart className="w-12 h-12 text-[#2F4F45]" />,
-      title: 'Data Analytics',
-      description:
-        'Transform raw data into actionable insights with advanced analytics and visualization tools.',
-      features: ['Business Intelligence', 'Real-time Dashboards', 'Data Warehousing', 'Custom Reports'],
-    },
-    {
-      icon: <Shield className="w-12 h-12 text-[#2F4F45]" />,
-      title: 'Cybersecurity',
-      description:
-        'Comprehensive security solutions to protect your business from evolving cyber threats.',
-      features: ['Security Audits', 'Threat Detection', 'Compliance Management', 'Incident Response'],
-    },
-    {
-      icon: <Code className="w-12 h-12 text-[#2F4F45]" />,
-      title: 'Custom Development',
-      description:
-        'Bespoke software solutions tailored to your unique business requirements and workflows.',
-      features: ['Web Applications', 'API Development', 'System Integration', 'Legacy Modernization'],
-    },
-    {
-      icon: <Smartphone className="w-12 h-12 text-[#2F4F45]" />,
-      title: 'Mobile Solutions',
-      description:
-        'Native and cross-platform mobile applications that deliver exceptional user experiences.',
-      features: ['iOS & Android', 'Cross-platform', 'App Modernization', 'Mobile Strategy'],
+      name: 'Comex AS',
+      logo: comexLogo,
+      website: 'https://comex-group.com/about-us/#more',
+      description: `
+        <p>
+        Comex Group delivers technologies for production and separation of fine powders and optical separation of large particles. The company develops innovative, highly advanced solutions for optimisation of the production costs that increase profitability of production processes through enhancing the quality of the final product, reducing the energy consumption and achieving more environmentally friendly parameters. Our customers include mines, processing plants, chemical plants, recycling plants as well as higher education institutions. 
+        </p>
+        <br/><br/>
+        <p>
+        Comex derives from SIM Investment Group and SINTEF Materials Technology, which is the biggest research institution in Scandinavia, whereas majority of the offered solutions have been developed in the recognized laboratories of NTNU University in Trondheim. 
+        </p>
+        <br/><br/>
+        <p>
+        What distinguishes Comex is its own testing laboratory, where we test samples delivered by the customers and which enables us to develop devices that suit individual needs of our customers. Our laboratory is open also to our contractors, who are very welcomed to take part in these tests. 
+        </p>
+        <br/><br/>
+        <p>
+        Since 2003 Comex has delivered over 150 innovative solutions for larger and smaller mining and production companies from several dozen countries. Our sales representatives operate in Europe, Asia, America, Africa and Australia.  
+        </p>
+      `,
     },
   ];
 
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <div>
-      <section className="bg-gradient-to-br from-[rgba(47,79,69,0.03)] via-white to-[rgba(95,15,18,0.03)] py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl font-bold text-[#2F4F45] mb-6">Our Solutions</h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Comprehensive technology solutions designed to address your unique business
-              challenges and accelerate growth.
-            </p>
-          </div>
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-[rgba(47,79,69,0.03)] via-white to-[rgba(95,15,18,0.03)] py-20 lg:pt-32 lg:pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl font-bold text-[#2F4F45] mb-6">
+            Industrial Inspection Solutions
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Proven inspection and NDT solutions delivered through globally recognized OEM technologies for critical industrial applications.
+          </p>
         </div>
       </section>
 
-      <section className="py-20 lg:py-32">
+      {/* OEM Tabs */}
+      <section className="pt-12 pb-20 lg:pt-12 lg:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {solutions.map((solution, index) => (
-              <Card key={index} hover>
-                <div className="text-[#2F4F45] mb-6">{solution.icon}</div>
-                <h3 className="text-2xl font-bold text-[#2F4F45] mb-4">{solution.title}</h3>
-                <p className="text-gray-600 mb-6">{solution.description}</p>
-                <ul className="space-y-2">
-                  {solution.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-gray-700">
-                      <div className="w-1.5 h-1.5 bg-[#2F4F45] rounded-full mr-3"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </Card>
+          
+          {/* Tabs */}
+          <div className="flex gap-6 border-b border-gray-200 overflow-x-auto pb-2 mb-12">
+            {oems.map((oem, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className={`flex items-center gap-3 pb-3 whitespace-nowrap transition-colors ${
+                  activeIndex === index
+                    ? 'border-b-2 border-[#2F4F45] text-[#2F4F45]'
+                    : 'text-gray-500 hover:text-[#2F4F45]'
+                }`}
+              >
+                <img
+                  src={oem.logo}
+                  alt={oem.name}
+                  className="h-8 object-contain"
+                />
+                <span className="font-medium text-sm lg:text-base">
+                  {oem.name}
+                </span>
+              </button>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="py-20 lg:py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-[#2F4F45] mb-12 text-center">
-              Our Process
-            </h2>
-            <div className="space-y-8">
-              {[
-                {
-                  step: '01',
-                  title: 'Discovery & Planning',
-                  description:
-                    'We work closely with you to understand your business goals, challenges, and requirements.',
-                },
-                {
-                  step: '02',
-                  title: 'Design & Architecture',
-                  description:
-                    'Our team creates a comprehensive solution architecture tailored to your needs.',
-                },
-                {
-                  step: '03',
-                  title: 'Development & Testing',
-                  description:
-                    'Agile development with continuous testing ensures quality and flexibility.',
-                },
-                {
-                  step: '04',
-                  title: 'Deployment & Support',
-                  description:
-                    'Seamless deployment with ongoing support and optimization to ensure success.',
-                },
-              ].map((process, index) => (
-                <div key={index} className="flex gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#2F4F45] to-[#5F0F12] rounded-full flex items-center justify-center text-white font-bold text-lg">
-                      {process.step}
-                    </div>
-                  </div>
-                  <div className="flex-grow">
-                    <h3 className="text-2xl font-bold text-[#2F4F45] mb-2">{process.title}</h3>
-                    <p className="text-gray-600">{process.description}</p>
-                  </div>
-                </div>
-              ))}
+          {/* Active OEM Content */}
+          {/* Description */}
+          <div className="lg:col-span-2">
+            <div
+              className="prose max-w-none text-gray-700"
+              dangerouslySetInnerHTML={{
+                __html: oems[activeIndex].description,
+              }}
+            />
+
+            {/* Explore Solutions */}
+            <div className="mt-6">
+              <a
+                href={oems[activeIndex].website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[#2F4F45] font-medium hover:underline"
+              >
+                Explore Solutions
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M14 3h7v7" />
+                  <path d="M10 14L21 3" />
+                  <path d="M21 14v7h-7" />
+                  <path d="M3 10v11h11" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
