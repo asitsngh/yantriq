@@ -1,144 +1,141 @@
 import { useState } from 'react';
-import scanmasterLogo from '../assets/scanmaster_logo.png';
-import lismarLogo from '../assets/lismar_logo1.webp';
-import comexLogo from '../assets/Comex-AS.webp';
+import ScanMaster from './solutions/ScanMaster';
+import LISMAR from './solutions/Lismar';
+import Comex from './solutions/Comex';
+import Kleinknecht from './solutions/Kleinknecht';
 
+/* ================= OEM MAP ================= */
+
+const OEMS_BY_SOLUTION = {
+  ndt: [
+    { key: 'scanmaster', label: 'ScanMaster Systems Ltd.' },
+    { key: 'lismar', label: 'LISMAR Engineering BV' },
+  ],
+  mineral: [
+    { key: 'comex', label: 'Comex AS' },
+  ],
+  edt: [
+    { key: 'kleinknecht', label: 'Kleinknecht' },
+  ],
+} as const;
+
+type SolutionKey = keyof typeof OEMS_BY_SOLUTION;
+type OEMKey =
+  typeof OEMS_BY_SOLUTION[keyof typeof OEMS_BY_SOLUTION][number]['key'];
 
 export default function Solutions() {
-  const oems = [
-    {
-      name: 'ScanMaster Systems Ltd.',
-      logo: scanmasterLogo,
-      website: 'https://scanmaster-irt.com/products/',
-      description: `
-        <p>
-        ScanMaster is a global leader in the development, design and manufacturing of automated ultrasonic inspection systems. Our technologically innovative systems have been installed with prime customers worldwide. 
-        </p>
-        <br/><br/>
-        <p>
-        Each ScanMaster ultrasonic inspection system has a number of core modules which are integrated in application-specific configurations delivering the right solution to address the specific requirements and relevant standards. These modules include advanced industrial PC-based digital ultrasonic instrumentation, mechanical manipulation systems, servo motion control hardware and production-oriented software packages. 
-        </p>
-        <br/><br/>
-        <p>
-        With more than three decades of inspection system expertise, ScanMaster has built up a large, knowledgeable and strong team of experts with diverse technology skills and application expertise. Delivering inspection systems to critical applications, our strong commitment to quality, service and customer support has been a cornerstone to our success. 
-        ScanMaster has installed more than 400 of ultrasonic inspection systems with prime customers at different locations all over the world. Our major customers come from various industries such as: aerospace and aircraft, automotive, railroad, Steel, pipes and tubes, energy, forging, casting and ordnance etc.
-        </p>
-      `,
-    },
-    {
-      name: 'LISMAR Engineering BV',
-      logo: lismarLogo,
-      website: 'https://www.lismar.com/products/',
-      description: `
-        <p>
-        Lismar is a leading manufacturer of roll inspection system installed on roll grinding machines, having most comprehensive range of solution to meet the inspection requirements in steel and aluminium industries. They are fully dedicated to roll inspection technology and have supplied large numbers of such system worldwide including India.  
-        </p>      
-      `,
-    },
-    {
-      name: 'Comex AS',
-      logo: comexLogo,
-      website: 'https://comex-group.com/about-us/#more',
-      description: `
-        <p>
-        Comex Group delivers technologies for production and separation of fine powders and optical separation of large particles. The company develops innovative, highly advanced solutions for optimisation of the production costs that increase profitability of production processes through enhancing the quality of the final product, reducing the energy consumption and achieving more environmentally friendly parameters. Our customers include mines, processing plants, chemical plants, recycling plants as well as higher education institutions. 
-        </p>
-        <br/><br/>
-        <p>
-        Comex derives from SIM Investment Group and SINTEF Materials Technology, which is the biggest research institution in Scandinavia, whereas majority of the offered solutions have been developed in the recognized laboratories of NTNU University in Trondheim. 
-        </p>
-        <br/><br/>
-        <p>
-        What distinguishes Comex is its own testing laboratory, where we test samples delivered by the customers and which enables us to develop devices that suit individual needs of our customers. Our laboratory is open also to our contractors, who are very welcomed to take part in these tests. 
-        </p>
-        <br/><br/>
-        <p>
-        Since 2003 Comex has delivered over 150 innovative solutions for larger and smaller mining and production companies from several dozen countries. Our sales representatives operate in Europe, Asia, America, Africa and Australia.  
-        </p>
-      `,
-    },
-  ];
+  const [activeSolution, setActiveSolution] =
+    useState<SolutionKey>('ndt');
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeOEM, setActiveOEM] =
+    useState<OEMKey>('scanmaster');
+
+  /* ================= OEM RENDERER ================= */
+
+  const renderOEM = () => {
+    switch (activeOEM) {
+      case 'scanmaster':
+        return <ScanMaster />;
+      case 'lismar':
+        return <LISMAR />;
+      case 'comex':
+        return <Comex />;
+      case 'kleinknecht':
+        return <Kleinknecht />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-[rgba(47,79,69,0.03)] via-white to-[rgba(95,15,18,0.03)] py-20 lg:pt-32 lg:pb-16">
+
+      {/* ================= Hero ================= */}
+      <section
+        className="bg-gradient-to-br from-[rgba(47,79,69,0.03)] via-white to-[rgba(95,15,18,0.03)]
+                   py-20 lg:pt-32 lg:pb-16"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold text-[#2F4F45] mb-6">
-            Industrial Inspection Solutions
+            Industrial Solutions
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Proven inspection and NDT solutions delivered through globally recognized OEM technologies for critical industrial applications.
+            Proven inspection and sorting solutions delivered through globally recognized
+            OEM technologies for critical industrial applications.
           </p>
         </div>
       </section>
 
-      {/* OEM Tabs */}
-      <section className="pt-12 pb-20 lg:pt-12 lg:pb-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Tabs */}
-          <div className="flex gap-6 border-b border-gray-200 overflow-x-auto pb-2 mb-12">
-            {oems.map((oem, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`flex items-center gap-3 pb-3 whitespace-nowrap transition-colors ${
-                  activeIndex === index
-                    ? 'border-b-2 border-[#2F4F45] text-[#2F4F45]'
-                    : 'text-gray-500 hover:text-[#2F4F45]'
-                }`}
-              >
-                <img
-                  src={oem.logo}
-                  alt={oem.name}
-                  className="h-8 object-contain"
-                />
-                <span className="font-medium text-sm lg:text-base">
-                  {oem.name}
-                </span>
-              </button>
-            ))}
-          </div>
-
-          {/* Active OEM Content */}
-          {/* Description */}
-          <div className="lg:col-span-2">
-            <div
-              className="prose max-w-none text-gray-700"
-              dangerouslySetInnerHTML={{
-                __html: oems[activeIndex].description,
-              }}
-            />
-
-            {/* Explore Solutions */}
-            <div className="mt-6">
-              <a
-                href={oems[activeIndex].website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#2F4F45] font-medium hover:underline"
-              >
-                Explore Solutions
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M14 3h7v7" />
-                  <path d="M10 14L21 3" />
-                  <path d="M21 14v7h-7" />
-                  <path d="M3 10v11h11" />
-                </svg>
-              </a>
+      {/* ================= Sticky Tabs Header ================= */}
+      <section className="sticky top-24 z-40 bg-white">
+        <div className="pt-6 pb-2">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl px-6">
+              <div className="flex gap-10 border-b border-gray-200">
+                {[
+                  { key: 'ndt', label: 'NDT Ultrasonic Inspection Systems' },
+                  { key: 'mineral', label: 'Mineral Sorting Solutions' },
+                  { key: 'edt', label: 'Electric Discharge Texturing (EDT)' },
+                ].map((tab) => (
+                  <button
+                    key={tab.key}
+                    onClick={() => {
+                      setActiveSolution(tab.key as SolutionKey);
+                      const firstOEM =
+                        OEMS_BY_SOLUTION[tab.key as SolutionKey][0];
+                      if (firstOEM) setActiveOEM(firstOEM.key);
+                    }}
+                    className={`pb-4 pt-5 text-lg font-medium transition-colors ${
+                      activeSolution === tab.key
+                        ? 'text-[#2F4F45] border-b-2 border-[#2F4F45]'
+                        : 'text-gray-600 hover:text-[#2F4F45]'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ================= Content ================= */}
+      <section className="pt-12 pb-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+
+            {/* ================= Left OEM Nav ================= */}
+            <aside className="lg:col-span-1">
+              <div
+                className="sticky top-[200px]
+                           bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-2"
+              >
+                {OEMS_BY_SOLUTION[activeSolution].map((oem) => (
+                  <button
+                    key={oem.key}
+                    onClick={() => setActiveOEM(oem.key)}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                      activeOEM === oem.key
+                        ? 'bg-[rgba(47,79,69,0.14)] text-[#2F4F45] font-medium'
+                        : 'text-gray-700 hover:bg-white'
+                    }`}
+                  >
+                    {oem.label}
+                  </button>
+                ))}
+              </div>
+            </aside>
+
+            {/* ================= Right Content Pane ================= */}
+            <div className="lg:col-span-3">
+              {renderOEM()}
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

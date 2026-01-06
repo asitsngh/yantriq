@@ -79,7 +79,7 @@ export default function Home() {
             <div className="space-y-8">
               <div className="inline-flex items-center space-x-2 bg-[rgba(47,79,69,0.08)] text-[#2F4F45] px-4 py-2 rounded-full text-sm font-medium">
                 <Sparkles className="w-4 h-4" />
-                <span>Next-Generation Technology</span>
+                <span>Next-Generation NDT Solutions</span>
               </div>
               <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 <span className="bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] bg-clip-text text-transparent">

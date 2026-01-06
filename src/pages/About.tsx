@@ -4,6 +4,7 @@ import { useState } from 'react';
 import scanmasterLogo from '../assets/scanmaster_logo.png';
 import lismarLogo from '../assets/lismar_logo1.webp';
 import comexLogo from '../assets/Comex-AS.webp';
+import kleinknechtLogo from '../assets/kleinknecht_logo.webp';
 
 export default function About() {
   const [selectedPartner, setSelectedPartner] = useState<number | null>(null);
@@ -43,7 +44,7 @@ export default function About() {
       website: 'https://scanmaster-irt.com/about-scanmaster-systems/',
       description: `
             <p>
-              ScanMaster Systems, originally founded as Inspection Research & Technologies (IRT), is a global leader in the development, design and manufacturing of automated ultrasonic inspection systems. Our technologically innovative systems have been installed with prime customers worldwide.
+              <strong>ScanMaster Systems</strong>, originally founded as Inspection Research & Technologies (IRT), is a global leader in the development, design and manufacturing of automated ultrasonic inspection systems. Our technologically innovative systems have been installed with prime customers worldwide.
             </p>
             <br/>
             <p>
@@ -70,7 +71,29 @@ export default function About() {
       image: lismarLogo,
       website: 'https://www.lismar.com/about/',
       description:
-        `LISMAR is a strong growing and dynamic company and is leading in Roll Inspection Systems. LISMAR's automatic Inspection Systems detect Surface defects through Eddy Current Technology (ET) and Surface Wave Technology (SW). For Subsurface defects, Ultrasonic Technology (UT) is applied.\n\n"LISMAR is your trusted partner in Roll Quality Control"`,
+        `
+        <p>
+          <strong>LISMAR Engineering BV</strong> is a global leader in roll inspection systems,
+          with installations across steel and aluminium production facilities worldwide.
+          In addition to its headquarters in the Netherlands and the United States, LISMAR
+          maintains an extensive global presence through local representatives in regions
+          including China, India, Korea, Taiwan, South Africa, Brazil, Mexico, Russia, and
+          Germany.
+        </p>
+        <br/>
+        <p>
+          LISMAR is a dynamic and continuously growing company, specializing exclusively in
+          roll inspection technology. Its automatic inspection systems detect surface defects
+          using Eddy Current Technology (ET) and Surface Wave Technology (SW), while subsurface
+          defects are identified through Ultrasonic Testing (UT).
+        </p>
+        <br/>
+        <p>
+          With a strong focus on reliability, performance, and customer support, LISMAR has
+          established itself as a trusted partner in roll quality control for rolling mills
+          worldwide.
+        </p>
+        `,
     },
     {
       name: 'Comex AS',
@@ -78,8 +101,56 @@ export default function About() {
       image: comexLogo,
       website: 'https://comex-group.com/about-us/',
       description:
-        `Comex sorting systems employ the state-of-the-art sensor technologies utilizing X-rays, optical sensors and reflectance in UV and IR light using hyperspectral imaging. These are widely applied in mining and mineral industry for separation of different minerals like coal, quartz, calcite and pre-concentration of metal ores like gold, copper, zinc-lead, tin, chrome and iron ores. The solution offers environment friendly, low cost and highly efficient sorting.`,
+        `
+        <p>
+          <strong>Comex</strong> is internationally recognized for its innovative sorting systems
+          and advanced pulverizing technologies. Backed by a team of experienced engineers,
+          in-house laboratory capabilities, and close cooperation with leading research
+          institutions, Comex delivers highly advanced solutions for the production,
+          separation of fine powders, and optical sorting of large particles.
+        </p>
+        <br/>
+        <p>
+          Comex systems are deployed across mining operations, mineral processing plants,
+          chemical facilities, and recycling plants worldwide. These solutions consistently
+          deliver measurable operational benefits, enabling customers to optimize production
+          costs and enhance profitability by improving the quality of the final product.
+        </p>
+        `,
     },
+    {
+        name: 'Kleinknecht',
+        role: 'Germany',
+        image: kleinknechtLogo,
+        website: 'https://www.kleinknecht.de/about-us/',
+        description: `
+          <p>
+            <strong>Kleinknecht</strong> is a globally recognized specialist in Electric Discharge
+            Texturing (EDT) systems for flat rolling applications in the steel and aluminium
+            industries.
+          </p>
+          <br/>
+          <p>
+            Kleinknecht’s EDT solutions enable precise and repeatable surface texturing of work
+            rolls, directly influencing strip surface quality, lubrication behavior, and
+            downstream forming performance. These systems are widely deployed in leading rolling
+            mills worldwide and comply with the highest industrial quality standards.
+          </p>
+          <br/>
+          <p>
+            The company originated as an engineering firm specializing in control system design
+            and the manufacture of control panels. Over the decades, Kleinknecht has evolved into
+            a software-driven systems integrator, leveraging modern technologies to transform
+            customer requirements into customized system engineering solutions.
+          </p>
+          <br/>
+          <p>
+            One of Kleinknecht’s key strengths is its workforce. With more than 200 highly skilled
+            employees across three locations, the company possesses the expertise and capacity
+            to support complex industrial projects globally.
+          </p>
+        `,
+      },
   ];
 
   return (
@@ -186,7 +257,7 @@ export default function About() {
               who are doing R&D, developing latest technologies and solutions in respective fields.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <Card key={index} hover>
                 <div className="w-full h-40 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
