@@ -1,4 +1,4 @@
-import{c as r,r as c,j as e,X as d}from"./index-DnCkmp-C.js";import{C as i}from"./Card-avTBHPPO.js";import{s as m,l as h,c as p,k as g}from"./kleinknecht_logo-Bzqvw3fB.js";/**
+import{c as r,r as c,j as e,X as d}from"./index-D_zLS9zB.js";import{C as i}from"./Card-C6hdehGq.js";import{s as m,l as h,c as p,k as g}from"./kleinknecht_logo-Bzqvw3fB.js";/**
  * @license lucide-react v0.344.0 - ISC
  *
  * This source code is licensed under the ISC license.
@@ -48,14 +48,14 @@ import{c as r,r as c,j as e,X as d}from"./index-DnCkmp-C.js";import{C as i}from"
           including China, India, Korea, Taiwan, South Africa, Brazil, Mexico, Russia, and
           Germany.
         </p>
-
+        <br/>
         <p>
           LISMAR is a dynamic and continuously growing company, specializing exclusively in
           roll inspection technology. Its automatic inspection systems detect surface defects
           using Eddy Current Technology (ET) and Surface Wave Technology (SW), while subsurface
           defects are identified through Ultrasonic Testing (UT).
         </p>
-
+        <br/>
         <p>
           With a strong focus on reliability, performance, and customer support, LISMAR has
           established itself as a trusted partner in roll quality control for rolling mills
@@ -69,7 +69,7 @@ import{c as r,r as c,j as e,X as d}from"./index-DnCkmp-C.js";import{C as i}from"
           institutions, Comex delivers highly advanced solutions for the production,
           separation of fine powders, and optical sorting of large particles.
         </p>
-
+        <br/>
         <p>
           Comex systems are deployed across mining operations, mineral processing plants,
           chemical facilities, and recycling plants worldwide. These solutions consistently
@@ -82,21 +82,21 @@ import{c as r,r as c,j as e,X as d}from"./index-DnCkmp-C.js";import{C as i}from"
             Texturing (EDT) systems for flat rolling applications in the steel and aluminium
             industries.
           </p>
-
+          <br/>
           <p>
             Kleinknecht’s EDT solutions enable precise and repeatable surface texturing of work
             rolls, directly influencing strip surface quality, lubrication behavior, and
             downstream forming performance. These systems are widely deployed in leading rolling
             mills worldwide and comply with the highest industrial quality standards.
           </p>
-
+          <br/>
           <p>
             The company originated as an engineering firm specializing in control system design
             and the manufacture of control panels. Over the decades, Kleinknecht has evolved into
             a software-driven systems integrator, leveraging modern technologies to transform
             customer requirements into customized system engineering solutions.
           </p>
-
+          <br/>
           <p>
             One of Kleinknecht’s key strengths is its workforce. With more than 200 highly skilled
             employees across three locations, the company possesses the expertise and capacity
