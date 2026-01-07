@@ -1,9 +1,16 @@
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { useForm, ValidationError } from '@formspree/react';
+import { useEffect } from 'react';
 import Card from '../components/Card';
 
 export default function Contact() {
-  const [state, handleSubmit] = useForm('xpqwgenj');
+  useEffect(() => {
+    // Inject hCaptcha script once
+    const script = document.createElement('script');
+    script.src = 'https://js.hcaptcha.com/1/api.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
 
   const contactInfo = [
     {
@@ -31,16 +38,14 @@ export default function Contact() {
     <div>
       {/* ================= Hero ================= */}
       <section className="bg-gradient-to-br from-[rgba(47,79,69,0.03)] via-white to-[rgba(95,15,18,0.03)] py-20 lg:pt-32 lg:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl font-bold text-[#2F4F45] mb-6">
-              Get In Touch
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Connect with our team to explore globally proven ultrasonic and
-              inspection technologies for your operational needs.
-            </p>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl font-bold text-[#2F4F45] mb-6">
+            Get In Touch
+          </h1>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Connect with our team to explore globally proven ultrasonic and
+            inspection technologies for your operational needs.
+          </p>
         </div>
       </section>
 
@@ -56,98 +61,74 @@ export default function Contact() {
               </h2>
 
               <Card>
-                {/* IMPORTANT: allow captcha overflow */}
-                <div className="overflow-visible">
-                  {state.succeeded ? (
-                    <div className="text-center py-8">
-                      <div className="w-16 h-16 bg-[rgba(47,79,69,0.08)] rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Send className="w-8 h-8 text-[#2F4F45]" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-[#2F4F45] mb-2">
-                        Thank You!
-                      </h3>
-                      <p className="text-gray-600">
-                        We've received your message and will get back to you soon.
-                      </p>
-                    </div>
-                  ) : (
-                    <form
-                      onSubmit={handleSubmit}
-                      method="POST"
-                      className="space-y-6"
-                    >
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Name
-                        </label>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2F4F45] outline-none"
-                        />
-                        <ValidationError prefix="Name" field="name" errors={state.errors} />
-                      </div>
+                <form
+                  action="https://formspree.io/f/xpqwgenj"
+                  method="POST"
+                  className="space-y-6"
+                >
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2F4F45] outline-none"
+                    />
+                  </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2F4F45] outline-none"
-                        />
-                        <ValidationError prefix="Email" field="email" errors={state.errors} />
-                      </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2F4F45] outline-none"
+                    />
+                  </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Company
-                        </label>
-                        <input
-                          type="text"
-                          name="company"
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2F4F45] outline-none"
-                        />
-                      </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Company
+                    </label>
+                    <input
+                      type="text"
+                      name="company"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2F4F45] outline-none"
+                    />
+                  </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Message
-                        </label>
-                        <textarea
-                          name="message"
-                          rows={5}
-                          required
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2F4F45] outline-none resize-none"
-                        />
-                        <ValidationError
-                          prefix="Message"
-                          field="message"
-                          errors={state.errors}
-                        />
-                      </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      name="message"
+                      rows={5}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2F4F45] outline-none resize-none"
+                    />
+                  </div>
 
-                      {/* ✅ OFFICIAL FORMSPREE CAPTCHA MOUNT */}
-                      <div data-formspree-captcha />
+                  {/* ✅ hCaptcha (manual, REQUIRED) */}
+                  <div className="pt-4">
+                    <div
+                      className="h-captcha"
+                      data-sitekey="0e52f250-99ac-4712-98b2-6e7ec07a679e"
+                    />
+                  </div>
 
-                      <button
-                        type="submit"
-                        disabled={state.submitting}
-                        className={`w-full px-8 py-4 bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] text-white rounded-lg font-medium flex items-center justify-center transition-all ${
-                          state.submitting
-                            ? 'opacity-70 cursor-not-allowed'
-                            : 'hover:shadow-lg hover:scale-105'
-                        }`}
-                      >
-                        {state.submitting ? 'Sending…' : 'Send Message'}
-                        <Send className="ml-2 w-5 h-5" />
-                      </button>
-                    </form>
-                  )}
-                </div>
+                  <button
+                    type="submit"
+                    className="w-full px-8 py-4 bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] text-white rounded-lg font-medium flex items-center justify-center hover:shadow-lg hover:scale-105 transition-all"
+                  >
+                    Send Message
+                    <Send className="ml-2 w-5 h-5" />
+                  </button>
+                </form>
               </Card>
             </div>
 
