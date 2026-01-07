@@ -287,68 +287,78 @@ export default function About() {
 
       {/* Modal Popup */}
       {selectedPartner !== null && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-6">
-          <div className="bg-white rounded-2xl max-w-4xl w-full p-10 relative shadow-xl">
-            
-            {/* Close button */}
-            <button
-              onClick={() => setSelectedPartner(null)}
-              className="absolute top-5 right-5 p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              aria-label="Close modal"
-            >
-              <X className="w-6 h-6 text-gray-600" />
-            </button>
-
-            {/* Header */}
-            <div className="flex items-center gap-8 mb-8">
-              <div className="w-28 h-28 flex-shrink-0 rounded-xl flex items-center justify-center overflow-hidden bg-gray-50">
-                <img
-                  src={team[selectedPartner].image}
-                  alt={team[selectedPartner].name}
-                  className="h-full object-contain"
-                />
-              </div>
-
-              <div>
-                <h3 className="text-3xl font-bold text-[#2F4F45] mb-1">
-                  {team[selectedPartner].name}
-                </h3>
-                <p className="text-[#5F0F12] font-medium text-lg">
-                  {team[selectedPartner].role}
-                </p>
-              </div>
-            </div>
-
-            {/* Description */}
+        <div className="fixed inset-0 bg-black/50 z-50 p-4 sm:p-6 overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center">
             <div
-              className="prose max-w-none text-gray-700"
-              dangerouslySetInnerHTML={{
-                __html: team[selectedPartner].description,
-              }}
-            />
-
-            {/* Learn more link */}
-            <div className="mt-6">
-              <a
-                href={team[selectedPartner].website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#2F4F45] font-medium hover:underline"
+              className="bg-white rounded-2xl max-w-4xl w-full
+                        max-h-[90vh] overflow-y-auto
+                        relative shadow-xl"
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setSelectedPartner(null)}
+                className="absolute top-5 right-5 p-2 hover:bg-gray-100 rounded-lg transition-colors z-10"
+                aria-label="Close modal"
               >
-                Learn more
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M14 3h7v7" />
-                  <path d="M10 14L21 3" />
-                  <path d="M21 14v7h-7" />
-                  <path d="M3 10v11h11" />
-                </svg>
-              </a>
+                <X className="w-6 h-6 text-gray-600" />
+              </button>
+
+              {/* Content wrapper (padding moved here) */}
+              <div className="p-6 sm:p-10">
+                
+                {/* Header */}
+                <div className="flex items-center gap-6 sm:gap-8 mb-8">
+                  <div className="w-24 h-24 sm:w-28 sm:h-28 flex-shrink-0 rounded-xl flex items-center justify-center overflow-hidden bg-gray-50">
+                    <img
+                      src={team[selectedPartner].image}
+                      alt={team[selectedPartner].name}
+                      className="h-full object-contain"
+                    />
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-[#2F4F45] mb-1">
+                      {team[selectedPartner].name}
+                    </h3>
+                    <p className="text-[#5F0F12] font-medium text-base sm:text-lg">
+                      {team[selectedPartner].role}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div
+                  className="prose max-w-none text-gray-700"
+                  dangerouslySetInnerHTML={{
+                    __html: team[selectedPartner].description,
+                  }}
+                />
+
+                {/* Learn more link */}
+                <div className="mt-6">
+                  <a
+                    href={team[selectedPartner].website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[#2F4F45] font-medium hover:underline"
+                  >
+                    Learn more
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M14 3h7v7" />
+                      <path d="M10 14L21 3" />
+                      <path d="M21 14v7h-7" />
+                      <path d="M3 10v11h11" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
