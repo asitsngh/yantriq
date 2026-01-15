@@ -11,7 +11,7 @@ const Contact = lazy(() => import('./pages/Contact'));
 
 export default function App() {
   return (
-    <BrowserRouter basename="/yantriq">
+    <BrowserRouter>
       <Navbar />
 
       <Suspense fallback={<DelayedSkeleton delay={500} />}>

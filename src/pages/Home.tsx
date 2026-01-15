@@ -12,11 +12,11 @@ export default function Home() {
 
   const slides = [
     {
-      image: surfaceWave,
+      image: immersionInspection,
       title: 'Scanmaster-Fully Automated Advanced Ultrasonic C Scan Machines',
     },
     {
-      image: immersionInspection,
+      image: surfaceWave,
       title: 'LISMAR-Most Advanced Fully Automated Roll Inspection System for Rolling Mills',
     },
     {
