@@ -1,134 +1,97 @@
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Phone, ExternalLink } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import logo from '../assets/yqt_logo.svg';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          
+    <footer className="bg-surface border-t border-edge">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+
           {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="rounded-lg bg-white/10 p-2">
-                <img
-                  src={logo}
-                  alt="Yantriq logo"
-                  className="w-8 h-8 object-contain"
-                />
-              </div>
-              <span className="text-2xl font-bold text-white">
-                Yantriq Systems
-              </span>
-            </div>
-            <p className="text-sm text-white/90">
-              Delivering OEM-backed NDT and inspection solutions for critical
-              industrial applications.
+          <div className="space-y-4 md:col-span-1">
+            <Link to="/" className="flex items-center gap-3">
+              <img src={logo} alt="Yantriq" className="w-9 h-9 opacity-80" />
+              <span className="font-heading font-bold text-ink text-sm leading-tight">Yantriq Systems<br />Private Limited</span>
+            </Link>
+            <p className="text-ink-muted text-sm font-body leading-relaxed max-w-xs">
+              Delivering OEM-backed NDT and inspection solutions for critical industrial applications across India.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="px-2 py-1 rounded hover:bg-white/10 transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="px-2 py-1 rounded hover:bg-white/10 transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/solutions" className="px-2 py-1 rounded hover:bg-white/10 transition-colors">
-                  Solutions
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="px-2 py-1 rounded hover:bg-white/10 transition-colors">
-                  Contact
-                </Link>
-              </li>
+            <p className="text-ink text-xs font-body uppercase tracking-widest mb-5 font-medium">Navigation</p>
+            <ul className="space-y-3">
+              {[
+                { to: '/', label: 'Home' },
+                { to: '/about', label: 'About Us' },
+                { to: '/solutions', label: 'Solutions' },
+                { to: '/contact', label: 'Contact' },
+              ].map(({ to, label }) => (
+                <li key={to}>
+                  <Link to={to} className="text-ink-muted text-sm font-body hover:text-ink transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* OEM Partners */}
           <div>
-            <h3 className="text-white font-semibold mb-4">OEM Partners</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href="https://scanmaster-irt.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-2 py-1 rounded hover:bg-white/10 transition-colors"
-                >
-                  ScanMaster Systems
-                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.lismar.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-2 py-1 rounded hover:bg-white/10 transition-colors"
-                >
-                  LISMAR Engineering
-                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://comex-group.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-2 py-1 rounded hover:bg-white/10 transition-colors"
-                >
-                  Comex AS
-                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.kleinknecht.de/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-2 py-1 rounded hover:bg-white/10 transition-colors"
-                >
-                  Kleinknecht
-                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
-                </a>
-              </li>
+            <p className="text-ink text-xs font-body uppercase tracking-widest mb-5 font-medium">OEM Partners</p>
+            <ul className="space-y-3">
+              {[
+                { href: 'https://scanmaster-irt.com/', label: 'ScanMaster Systems', to: '/solutions/scanmaster' },
+                { href: 'https://www.lismar.com', label: 'LISMAR Engineering', to: '/solutions/lismar' },
+                { href: 'https://comex-group.com/', label: 'Comex AS', to: '/solutions/comex' },
+                { href: 'https://www.kleinknecht.de/', label: 'Kleinknecht', to: '/solutions/kleinknecht' },
+              ].map(({ to, label }) => (
+                <li key={to}>
+                  <Link to={to} className="text-ink-muted text-sm font-body hover:text-ink transition-colors flex items-center gap-1.5">
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
-            <ul className="space-y-3 text-white/90 text-sm">
-              <li className="flex items-center space-x-2">
-                <Mail className="w-4 h-4" />
-                <span>sales@yantriq.com</span>
+            <p className="text-ink text-xs font-body uppercase tracking-widest mb-5 font-medium">Contact</p>
+            <ul className="space-y-4">
+              <li>
+                <a href="mailto:sales@yantriq.in" className="flex items-start gap-3 text-ink-muted text-sm font-body hover:text-ink transition-colors group">
+                  <Mail className="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:text-brand-light transition-colors" />
+                  <span>sales@yantriq.in</span>
+                </a>
               </li>
-              <li className="flex items-center space-x-2">
-                <Phone className="w-4 h-4" />
-                <span>+91 22 3597 8445</span>
+              <li>
+                <a href="tel:+9102235978445" className="flex items-start gap-3 text-ink-muted text-sm font-body hover:text-ink transition-colors group">
+                  <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:text-brand-light transition-colors" />
+                  <span>+91-022-35978445</span>
+                </a>
               </li>
-              <li className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4" />
-                <span>Mumbai, India</span>
+              <li>
+                <a
+                  href="https://maps.app.goo.gl/sLQLUz5PYaPJU6qH8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-ink-muted text-sm font-body hover:text-ink transition-colors group"
+                >
+                  <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:text-brand-light transition-colors" />
+                  <span>Vikhroli (W), Mumbai – 400079, India</span>
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="border-t border-[rgba(255,255,255,0.08)] mt-8 pt-8 text-center text-sm text-white/80">
-          <p>© {new Date().getFullYear()} Yantriq Systems. All rights reserved.</p>
+        <div className="border-t border-edge mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-ink-muted text-xs font-body">
+            © {new Date().getFullYear()} Yantriq Systems Private Limited. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
