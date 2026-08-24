@@ -5,13 +5,15 @@ import { gsap, ScrollTrigger } from '../lib/gsap';
 
 import immersionInspection from '../assets/immersion-inspection.jpg';
 import rollInspectionImg from '../assets/lismar_lri.png';
-import comexImg1 from '../assets/comexp1.png';
+import comexImg1 from '../assets/comexp2.png';
 import edtImg1 from '../assets/kl_edt.png';
+import radalyxRoboticArms from '../assets/rad3.png';
 
 import scanmasterLogo from '../assets/scanmaster_logo.png';
 import lismarLogo from '../assets/lismar_logo1.webp';
 import comexLogo from '../assets/Comex-AS.webp';
 import kleinknechtLogo from '../assets/kleinknecht_logo.webp';
+import radalyticaLogo from '../assets/radalytica_logo.svg';
 
 const OEMS = [
   {
@@ -60,6 +62,18 @@ const OEMS = [
     bg: edtImg1,
     logo: kleinknechtLogo,
     href: '/solutions/kleinknecht',
+    accent: 'from-canvas/10 via-canvas/70 to-canvas',
+  },
+  {
+    key: 'radalytica',
+    name: 'Radalytica',
+    country: 'Czech Republic',
+    category: 'Robotic CT Inspection',
+    brief:
+      'Portable robotic CT system with photon-counting sensors for advanced non-destructive testing. Brings high-precision inspection directly to your facility.',
+    bg: radalyxRoboticArms,
+    logo: radalyticaLogo,
+    href: '/solutions/radalytica',
     accent: 'from-canvas/10 via-canvas/70 to-canvas',
   },
 ];

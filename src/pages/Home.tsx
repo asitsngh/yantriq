@@ -8,6 +8,7 @@ import scanmasterLogo from '../assets/scanmaster_logo.png';
 import lismarLogo from '../assets/lismar_logo1.webp';
 import comexLogo from '../assets/Comex-AS.webp';
 import kleinknechtLogo from '../assets/kleinknecht_logo.webp';
+import radalyticaLogo from '../assets/radalytica_logo.svg';
 
 const FEATURES = [
   {
@@ -37,6 +38,7 @@ const OEMS = [
   { logo: lismarLogo, name: 'LISMAR Engineering', href: '/solutions/lismar' },
   { logo: comexLogo, name: 'Comex AS', href: '/solutions/comex' },
   { logo: kleinknechtLogo, name: 'Kleinknecht', href: '/solutions/kleinknecht' },
+  { logo: radalyticaLogo, name: 'Radalytica', href: '/solutions/radalytica' },
 ];
 
 export default function Home() {
@@ -283,7 +285,7 @@ export default function Home() {
           <p className="text-center text-ink-muted text-xs uppercase tracking-[0.3em] font-body mb-12">
             Our Global OEM Partners
           </p>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 items-center">
+          <div className="grid grid-cols-5 gap-x-16 justify-items-center w-full">
             {OEMS.map((oem, i) => (
               <Link
                 key={i}

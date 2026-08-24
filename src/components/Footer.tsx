@@ -47,6 +47,7 @@ export default function Footer() {
                 { href: 'https://www.lismar.com', label: 'LISMAR Engineering', to: '/solutions/lismar' },
                 { href: 'https://comex-group.com/', label: 'Comex AS', to: '/solutions/comex' },
                 { href: 'https://www.kleinknecht.de/', label: 'Kleinknecht', to: '/solutions/kleinknecht' },
+                { href: 'https://radalytica.com/', label: 'Radalytica', to: '/solutions/radalytica' },
               ].map(({ to, label }) => (
                 <li key={to}>
                   <Link to={to} className="text-ink-muted text-sm font-body hover:text-ink transition-colors flex items-center gap-1.5">

@@ -13,6 +13,7 @@ const ScanMasterDetail = lazy(() => import('./pages/solutions/ScanMasterDetail')
 const LismarDetail = lazy(() => import('./pages/solutions/LismarDetail'));
 const ComexDetail = lazy(() => import('./pages/solutions/ComexDetail'));
 const KleinknechtDetail = lazy(() => import('./pages/solutions/KleinknechtDetail'));
+const RadalyXDetail = lazy(() => import('./pages/solutions/RadalyXDetail'));
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/solutions/lismar" element={<LismarDetail />} />
             <Route path="/solutions/comex" element={<ComexDetail />} />
             <Route path="/solutions/kleinknecht" element={<KleinknechtDetail />} />
+            <Route path="/solutions/radalytica" element={<RadalyXDetail />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </Suspense>

@@ -6,6 +6,7 @@ import scanmasterLogo from '../assets/scanmaster_logo.png';
 import lismarLogo from '../assets/lismar_logo1.webp';
 import comexLogo from '../assets/Comex-AS.webp';
 import kleinknechtLogo from '../assets/kleinknecht_logo.webp';
+import radalyticaLogo from '../assets/radalytica_logo.svg';
 import surfaceWave from '../assets/Surfacewave-Product-Slide-1-1.jpg';
 
 const TEAM = [
@@ -66,6 +67,20 @@ const TEAM = [
       <p>The company originated as an engineering firm specializing in control system design and the manufacture of control panels. Over the decades, Kleinknecht has evolved into a software-driven systems integrator, leveraging modern technologies to transform customer requirements into customized system engineering solutions.</p>
       <br/>
       <p>One of Kleinknecht's key strengths is its workforce. With more than 200 highly skilled employees across three locations, the company possesses the expertise and capacity to support complex industrial projects globally.</p>
+    `,
+  },
+  {
+    name: 'Radalytica',
+    role: 'Czech Republic',
+    href: '/solutions/radalytica',
+    image: radalyticaLogo,
+    website: 'https://radalytica.com/',
+    description: `
+      <p><strong>Radalytica</strong> is an innovative imaging technology company that has developed a groundbreaking portable robotic computed tomography (CT) system for non-destructive testing (NDT). The company is based in the Czech Republic and specializes in advanced X-ray imaging solutions.</p>
+      <br/>
+      <p>RadalyX, their flagship system, represents a paradigm shift in CT inspection technology. Unlike conventional CT systems limited by inspection chamber dimensions, RadalyX brings high-precision scanning capabilities directly to production facilities, maintenance areas, laboratories, and field locations. The system integrates next-generation photon-counting imaging sensors (PCD) that deliver exceptional resolution down to 55 µm, enabling detection of even the smallest defects with superior accuracy.</p>
+      <br/>
+      <p>Designed for simplicity and reliability, RadalyX requires minimal operator training while delivering professional-grade results. The system's dual six-axis robotic arms automatically position the X-ray source and detector, with intelligent software managing calibration, collision avoidance, and scanning trajectories. This combination of portability, automation, and advanced imaging technology makes RadalyX ideal for aerospace, automotive, composites, additive manufacturing, and weld inspection applications.</p>
     `,
   },
 ];
@@ -236,7 +251,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
             {TEAM.map((member, index) => (
               <button
                 key={index}
