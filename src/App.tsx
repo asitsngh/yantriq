@@ -13,7 +13,7 @@ const RadalyXDetail = lazy(() => import('./pages/solutions/RadalyXDetail'));
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/yantriq">
       <SmoothScroll>
         <Navbar />
 
