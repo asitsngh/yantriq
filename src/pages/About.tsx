@@ -1,13 +1,74 @@
 import { Target, Users, Award, Heart, X } from 'lucide-react';
 import Card from '../components/Card';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { gsap } from '../lib/gsap';
 import scanmasterLogo from '../assets/scanmaster_logo.png';
 import lismarLogo from '../assets/lismar_logo1.webp';
 import comexLogo from '../assets/Comex-AS.webp';
 import kleinknechtLogo from '../assets/kleinknecht_logo.webp';
+import radalyticaLogo from '../assets/radalytica_logo.svg';
 
 export default function About() {
   const [selectedPartner, setSelectedPartner] = useState<number | null>(null);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      gsap.set('.about-heading', { autoAlpha: 0, y: 24 });
+      gsap.to('.about-heading', {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+      });
+
+      gsap.set('.about-card', { autoAlpha: 0, y: 28 });
+      gsap.to('.about-card', {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.08,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.about-card-grid',
+          start: 'top 82%',
+          once: true,
+        },
+      });
+
+      gsap.set('.about-value-card', { autoAlpha: 0, y: 26 });
+      gsap.to('.about-value-card', {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.08,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.about-values-grid',
+          start: 'top 82%',
+          once: true,
+        },
+      });
+
+      gsap.set('.about-partner-card', { autoAlpha: 0, y: 26 });
+      gsap.to('.about-partner-card', {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.08,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.about-partners-grid',
+          start: 'top 82%',
+          once: true,
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   const values = [
     {
@@ -151,6 +212,28 @@ export default function About() {
           </p>
         `,
       },
+      {
+        name: 'Radalytica',
+        role: 'Czech Republic',
+        image: radalyticaLogo,
+        website: 'https://radalytica.com/',
+        description: `
+          <p>
+            <strong>Radalytica</strong> develops advanced portable robotic computed tomography (CT)
+            systems for non-destructive testing with high-resolution photon-counting imaging.
+          </p>
+          <br/>
+          <p>
+            The RadalyX platform brings inspection directly to the part, making it ideal for large or
+            difficult-to-move components in production, maintenance, and R&D environments.
+          </p>
+          <br/>
+          <p>
+            This flexible approach supports aerospace, automotive, composites, additive manufacturing,
+            and weld inspection applications with a strong focus on reliability, repeatability, and ease of use.
+          </p>
+        `,
+      },
   ];
 
   return (
@@ -158,7 +241,7 @@ export default function About() {
       <section className="bg-gradient-to-br from-[rgba(47,79,69,0.03)] via-white to-[rgba(95,15,18,0.03)] py-20 lg:pt-32 lg:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl font-bold text-[#2F4F45] mb-6">About Yantriq</h1>
+            <h1 className="about-heading text-5xl font-bold text-[#2F4F45] mb-6">About Yantriq</h1>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
               Yantriq delivers a comprehensive range of advanced solutions in{' '}
               <span className="font-bold bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] bg-clip-text text-transparent">Non-Destructive Testing (NDT)</span> and{' '}
@@ -173,8 +256,8 @@ export default function About() {
             </p>
 
             <h3 className="text-2xl font-bold text-[#5F0F12] mb-8">Our Core Areas of Expertise</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 mb-6">
-              <Card hover>
+            <div className="about-card-grid grid md:grid-cols-2 lg:grid-cols-2 gap-6 mb-6">
+              <Card hover className="about-card">
                 <h4 className="font-bold text-[#2F4F45] mb-3 text-center text-lg">
                   Marketing & Technical Sales
                 </h4>
@@ -183,7 +266,7 @@ export default function About() {
                 </p>
               </Card>
 
-              <Card hover>
+              <Card hover className="about-card">
                 <h4 className="font-bold text-[#2F4F45] mb-3 text-center text-lg">
                   Customized Manufacturing
                 </h4>
@@ -192,7 +275,7 @@ export default function About() {
                 </p>
               </Card>
 
-              <Card hover>
+              <Card hover className="about-card">
                 <h4 className="font-bold text-[#2F4F45] mb-3 text-center text-lg">
                   System Integration & Installation
                 </h4>
@@ -202,7 +285,7 @@ export default function About() {
                 </p>
               </Card>
 
-              <Card hover>
+              <Card hover className="about-card">
                 <h4 className="font-bold text-[#2F4F45] mb-3 text-center text-lg">
                   Maintenance & Support
                 </h4>
@@ -235,9 +318,9 @@ export default function About() {
               The principles that guide everything we do.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="about-values-grid grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <Card key={index} hover>
+              <Card key={index} hover className="about-value-card">
                 <div className="text-[#2F4F45] mb-4">{value.icon}</div>
                 <h3 className="text-xl font-semibold text-[#2F4F45] mb-3">{value.title}</h3>
                 <p className="text-gray-600">{value.description}</p>
@@ -257,10 +340,16 @@ export default function About() {
               who are doing R&D, developing latest technologies and solutions in respective fields.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="about-partners-grid grid gap-8 md:grid-cols-6 lg:grid-cols-5">
             {team.map((member, index) => (
-              <Card key={index} hover>
-                <div className="w-full h-40 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+              <Card
+                key={index}
+                hover
+                className={`about-partner-card md:col-span-2 md:col-start-auto lg:col-span-1 ${
+                  index === 3 ? 'md:col-start-2 lg:col-start-auto' : index === 4 ? 'md:col-start-4 lg:col-start-auto' : ''
+                }`}
+              >
+                <div className="w-full h-40 rounded-lg mb-4 p-4 flex items-center justify-center overflow-hidden bg-gray-900">
                   <img
                     src={member.image}
                     alt={member.name}
@@ -317,8 +406,15 @@ export default function About() {
                   </div>
 
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-[#2F4F45] mb-1">
-                      {team[selectedPartner].name}
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-1">
+                      <a
+                        href={team[selectedPartner].website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#2F4F45] hover:text-[#5F0F12] transition-colors"
+                      >
+                        {team[selectedPartner].name}
+                      </a>
                     </h3>
                     <p className="text-[#5F0F12] font-medium text-base sm:text-lg">
                       {team[selectedPartner].role}

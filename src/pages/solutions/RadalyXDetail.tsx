@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { gsap } from '../../lib/gsap';
 
 import radalyticaLogo from '../../assets/radalytica_logo.svg';
@@ -13,20 +13,22 @@ import rad5 from '../../assets/rad5.png';
 
 const FEATURES = [
   {
-    title: 'Region-of-Interest (ROI) Scanning',
+    title: 'Advanced Features',
     bullets: [
-      'Scan only specific areas of large structures.',
-      'Significantly reduces acquisition time while preserving critical information.',
-      'Eliminates the need to scan the entire object when only a specific region matters.',
+      'High-resolution photon-counting X-ray detectors down to 55 µm.',
+      'Region-of-interest scanning for large structures, reducing acquisition time while preserving critical information.',
+      'Spectral imaging differentiates materials based on X-ray energy.',
+      'Fully portable or installable in a workshop, with increased R&D iteration speed.',
     ],
   },
   {
-    title: 'Automation & Consistency',
+    title: 'Inspection Modalities',
     bullets: [
-      'Automatization minimizes human error through consistent, repeatable inspections.',
-      'Automatic checking of the same object or location repeatedly.',
-      'Dramatically increases R&D iterations with high resolution and sensitivity.',
-      'Full integration with manufacturing workflows.',
+      '2D Radiography and 3D Computed Tomography.',
+      'Tomosynthesis and arbitrary-path CT.',
+      'Laser surface profiling.',
+      'Back-scattering and XRD applications.',
+      'Standard flat-panel detectors can also be integrated when preferred.',
     ],
   },
   {
@@ -36,7 +38,7 @@ const FEATURES = [
       'Composite materials including GFRP and CFRP, both monolithic and sandwich structures.',
       'Detection of delamination, fiber breakage, and resin-rich or resin-lean zones.',
       'Inspection of bonded structures for disbonds and adhesive failures.',
-      'Additive manufactured (3D printed) parts for internal integrity verification.',
+      'Additive-manufactured (3D printed) parts for internal integrity verification.',
       'Inspection of metal welds for cracks, lack of fusion, and porosity.',
       'Any other suitable NDT applications.',
     ],
@@ -128,82 +130,62 @@ export default function RadalyXDetail() {
 
   return (
     <div ref={pageRef} className="bg-canvas text-ink">
-
-      {/* ─────────────────────────────────────────
-          HERO
-      ───────────────────────────────────────── */}
-      <section className="rx-hero relative h-[70vh] min-h-[500px] overflow-hidden">
-
-        <div className="rx-hero-bg absolute inset-0 scale-[1.1]">
+      <section className="rx-hero relative min-h-[500px] overflow-hidden bg-gray-950">
+        <div className="rx-hero-bg absolute inset-y-0 right-0 w-full lg:w-3/5 scale-[1.02]">
           <img
             src={rad1}
             alt="RadalyX robotic CT inspection system"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-contain object-center"
           />
-
-          <div className="absolute inset-0 bg-gradient-to-b from-canvas/20 via-canvas/55 to-canvas" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/60 to-transparent" />
         </div>
 
-        <div className="rx-hero-content relative z-10 h-full flex flex-col justify-end px-6 sm:px-12 lg:px-16 pb-14 max-w-7xl mx-auto">
+        <div className="rx-hero-content relative z-10 min-h-[500px] flex items-center px-6 sm:px-12 lg:px-16 max-w-7xl mx-auto w-full">
+          <div className="max-w-xl">
+            <div className="mb-6 h-12 flex items-center">
+              <img
+                src={radalyticaLogo}
+                alt="Radalytica"
+                className="max-h-full max-w-[190px] object-contain"
+              />
+            </div>
 
-          <Link
-            to="/solutions"
-            className="inline-flex items-center gap-2 text-ink-muted text-xs font-body uppercase tracking-widest mb-8 hover:text-ink transition-colors"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            Back to Solutions
-          </Link>
+            <p className="text-white/80 text-xs uppercase tracking-widest font-body mb-3">
+              Robotic Multimodal CT Inspection
+            </p>
 
-          {/* Logo */}
-          <div className="mb-5 h-10 flex items-center">
-            <img
-              src={radalyticaLogo}
-              alt="Radalytica"
-              className="max-h-full max-w-[160px] object-contain opacity-90"
-            />
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold text-white leading-none">
+              RadalyX
+            </h1>
+
+            <p className="text-white/80 text-sm font-body mt-3">Czech Republic</p>
+
+            <p className="text-white/75 text-base sm:text-lg leading-relaxed font-body mt-6 max-w-lg">
+              Portable robotic computed tomography for high-resolution inspection
+              of large and complex components.
+            </p>
           </div>
-
-          <p className="text-ink-muted text-xs uppercase tracking-widest font-body mb-2">
-            Robotic Multimodal CT Inspection
-          </p>
-
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-ink leading-none">
-            RadalyX
-          </h1>
-
-          <p className="text-ink-muted text-sm font-body mt-2">
-            Czech Republic
-          </p>
         </div>
       </section>
 
 
       {/* ─────────────────────────────────────────
-          OVERVIEW
-      ───────────────────────────────────────── */}
-      <section className="rx-overview py-20 px-6 sm:px-12 lg:px-16 bg-surface border-b border-edge">
-        <div className="max-w-4xl mx-auto">
-
-          <p className="text-ink-muted text-xs uppercase tracking-widest font-body mb-5">
-            Company Overview
-          </p>
-
-          <div className="space-y-4 text-ink-muted font-body text-base leading-relaxed">
-
             <p>
-              Radalytica, based in the Czech Republic, has developed an
-              advanced portable robotic computed tomography (CT) system for
-              non-destructive testing (NDT). RadalyX is a modular robotic
-              X-ray imaging platform designed to bring the scanner directly
-              to the object rather than being restricted by the dimensions of
-              a conventional inspection chamber.
+              We would like to introduce our advanced X-ray CT scan solutions
+              designed and manufactured by Radalytica, based in the Czech
+              Republic. Radalytica is an innovative imaging technology company
+              that has developed a groundbreaking portable robotic computed
+              tomography (CT) system.
             </p>
 
             <p>
-              What sets RadalyX apart is its use of next-generation
-              photon-counting imaging sensors (PCD). The technology provides
+              What sets our solution apart is the use of next-generation
+              photon-counting imaging sensors (PCD). This technology offers
               enhanced image resolution, improved contrast sensitivity, and
-              superior defect detection capability compared with conventional
+              superior defect detection capability compared to conventional
+              systems, allowing even the smallest defects to be identified
+              with high accuracy and reliability.
+            </p>
               systems, allowing even small defects to be identified with high
               accuracy and reliability.
             </p>
@@ -224,19 +206,19 @@ export default function RadalyXDetail() {
       {/* ─────────────────────────────────────────
           PORTABLE & FLEXIBLE INSPECTION
       ───────────────────────────────────────── */}
-      <section className="rx-content-section py-20 lg:py-28 px-6 sm:px-12 lg:px-16">
+      <section className="rx-content-section py-14 lg:py-20 px-6 sm:px-12 lg:px-16">
 
         <div className="max-w-7xl mx-auto">
 
-          <p className="text-ink-muted text-xs uppercase tracking-widest font-body mb-4">
-            Portable Inspection
+            <p className="text-ink-muted text-xs uppercase tracking-widest font-body mb-4">
+            Portable & Flexible Inspection
           </p>
 
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-16 leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-10 leading-tight">
             Bring the Scanner to the Object
           </h2>
 
-          <div className="grid lg:grid-cols-2 gap-10 items-start">
+          <div className="space-y-8">
 
             {/* Text */}
             <div>
@@ -249,14 +231,14 @@ export default function RadalyXDetail() {
 
                 <li className="flex items-start gap-3 text-ink-muted font-body text-sm leading-relaxed">
                   <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-light mt-2" />
-                  Brings the scanner directly to the object, eliminating the
-                  size limitations of conventional inspection chambers.
+                  RadalyX brings the scanner directly to the object and can
+                  also be installed in a manufacturing plant.
                 </li>
 
                 <li className="flex items-start gap-3 text-ink-muted font-body text-sm leading-relaxed">
                   <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-light mt-2" />
-                  Fully portable or installable in manufacturing plants and
-                  workshops.
+                  Built for simplicity, advanced CT inspection can be performed
+                  professionally after just two days of training.
                 </li>
 
                 <li className="flex items-start gap-3 text-ink-muted font-body text-sm leading-relaxed">
@@ -267,14 +249,13 @@ export default function RadalyXDetail() {
 
                 <li className="flex items-start gap-3 text-ink-muted font-body text-sm leading-relaxed">
                   <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-light mt-2" />
-                  Large, complex, and fixed structures can be inspected where
-                  they are located.
+                  Large, complex, or fixed structures can be inspected where
+                  they are located, without an inspection chamber size limit.
                 </li>
 
                 <li className="flex items-start gap-3 text-ink-muted font-body text-sm leading-relaxed">
                   <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-light mt-2" />
-                  Professional scanning can be performed after minimal
-                  operator training.
+                  The system supports inspection of objects of unlimited size.
                 </li>
 
               </ul>
@@ -282,21 +263,21 @@ export default function RadalyXDetail() {
             </div>
 
             {/* Images */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 gap-6">
 
-              <div className="bg-surface border border-edge rounded-2xl p-4 flex items-center justify-center min-h-[240px]">
+              <div className="bg-white border border-gray-200 rounded-2xl p-5 flex items-center justify-center min-h-[320px]">
                 <img
                   src={rad2}
                   alt="RadalyX inspecting an aircraft"
-                  className="object-contain max-h-[300px] w-full rounded-xl"
+                  className="object-contain max-h-[420px] w-full rounded-xl"
                 />
               </div>
 
-              <div className="bg-surface border border-edge rounded-2xl p-4 flex items-center justify-center min-h-[240px]">
+              <div className="bg-white border border-gray-200 rounded-2xl p-5 flex items-center justify-center min-h-[320px]">
                 <img
                   src={rad3}
                   alt="RadalyX installed in an industrial inspection facility"
-                  className="object-contain max-h-[300px] w-full rounded-xl"
+                  className="object-contain max-h-[420px] w-full rounded-xl"
                 />
               </div>
 
@@ -310,7 +291,7 @@ export default function RadalyXDetail() {
       {/* ─────────────────────────────────────────
           ROBOTIC AUTOMATION
       ───────────────────────────────────────── */}
-      <section className="rx-content-section py-20 lg:py-28 px-6 sm:px-12 lg:px-16 bg-surface border-y border-edge">
+      <section className="rx-content-section py-14 lg:py-20 px-6 sm:px-12 lg:px-16 bg-surface border-y border-edge">
 
         <div className="max-w-7xl mx-auto">
 
@@ -318,19 +299,19 @@ export default function RadalyXDetail() {
             Robotic Automation
           </p>
 
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-16 leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-10 leading-tight">
             Intelligent Robotic Inspection
           </h2>
 
           <div className="grid lg:grid-cols-2 gap-10 items-center">
 
             {/* Image */}
-            <div className="bg-canvas border border-edge rounded-2xl p-6 flex items-center justify-center min-h-[300px]">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 flex items-center justify-center min-h-[420px]">
 
               <img
                 src={rad5}
                 alt="RadalyX portable six-axis robotic inspection system"
-                className="object-contain max-h-[360px] w-full"
+                className="object-contain max-h-[500px] w-full"
               />
 
             </div>
@@ -365,12 +346,14 @@ export default function RadalyXDetail() {
                 <li className="flex items-start gap-3 text-ink-muted font-body text-sm leading-relaxed">
                   <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-light mt-2" />
                   Operators simply define the inspection task while the system
-                  manages the scanning process.
+                  manages calibration, collision avoidance, trajectories, and
+                  the scanning process.
                 </li>
 
                 <li className="flex items-start gap-3 text-ink-muted font-body text-sm leading-relaxed">
                   <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-light mt-2" />
-                  Enables repeatable inspection of complex or fixed structures.
+                  Automation enables repeatable checks of the same object or
+                  location while minimizing human error.
                 </li>
 
               </ul>
@@ -385,7 +368,7 @@ export default function RadalyXDetail() {
       {/* ─────────────────────────────────────────
           PHOTON COUNTING
       ───────────────────────────────────────── */}
-      <section className="rx-content-section py-20 lg:py-28 px-6 sm:px-12 lg:px-16">
+      <section className="rx-content-section py-14 lg:py-20 px-6 sm:px-12 lg:px-16">
 
         <div className="max-w-7xl mx-auto">
 
@@ -393,14 +376,14 @@ export default function RadalyXDetail() {
             Advanced Imaging
           </p>
 
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-16 leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-10 leading-tight">
             Photon-Counting Detection
           </h2>
 
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div className="grid gap-8">
 
             {/* Text */}
-            <div className="lg:order-2">
+            <div>
 
               <h3 className="text-xl font-heading font-semibold text-ink mb-5">
                 High Resolution & Sensitivity
@@ -438,12 +421,12 @@ export default function RadalyXDetail() {
             </div>
 
             {/* Image */}
-            <div className="lg:order-1 bg-surface border border-edge rounded-2xl p-5 flex items-center justify-center">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 flex items-center justify-center min-h-[520px]">
 
               <img
                 src={rad4}
                 alt="RadalyX photon-counting X-ray imaging example"
-                className="object-contain max-h-[430px] w-full"
+                className="object-contain max-h-[760px] w-full"
               />
 
             </div>
@@ -456,7 +439,7 @@ export default function RadalyXDetail() {
       {/* ─────────────────────────────────────────
           MULTIMODAL IMAGING
       ───────────────────────────────────────── */}
-      <section className="rx-content-section py-20 lg:py-28 px-6 sm:px-12 lg:px-16 bg-surface border-y border-edge">
+      <section className="rx-content-section py-14 lg:py-20 px-6 sm:px-12 lg:px-16 bg-surface border-y border-edge">
 
         <div className="max-w-7xl mx-auto">
 
@@ -464,7 +447,7 @@ export default function RadalyXDetail() {
             Multimodal Imaging
           </p>
 
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-16 leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-10 leading-tight">
             Multiple Inspection Modalities
           </h2>
 
@@ -517,12 +500,12 @@ export default function RadalyXDetail() {
             </div>
 
             {/* Image */}
-            <div className="bg-canvas border border-edge rounded-2xl p-6 flex items-center justify-center min-h-[300px]">
+            <div className="bg-white border border-gray-200 rounded-2xl p-6 flex items-center justify-center min-h-[420px]">
 
               <img
                 src={rad5}
                 alt="RadalyX multimodal robotic inspection platform"
-                className="object-contain max-h-[360px] w-full"
+                className="object-contain max-h-[500px] w-full"
               />
 
             </div>
@@ -535,7 +518,7 @@ export default function RadalyXDetail() {
       {/* ─────────────────────────────────────────
           CORE FEATURES
       ───────────────────────────────────────── */}
-      <section className="py-20 lg:py-28 px-6 sm:px-12 lg:px-16">
+      <section className="py-14 lg:py-20 px-6 sm:px-12 lg:px-16">
 
         <div className="max-w-7xl mx-auto">
 
@@ -543,7 +526,7 @@ export default function RadalyXDetail() {
             Features & Capabilities
           </p>
 
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-16 leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-10 leading-tight">
             Built for Advanced NDT
           </h2>
 
@@ -577,7 +560,7 @@ export default function RadalyXDetail() {
                 </div>
 
                 {i < FEATURES.length - 1 && (
-                  <div className="mt-16 border-t border-edge/40" />
+                  <div className="mt-10 border-t border-edge/40" />
                 )}
 
               </div>
@@ -591,9 +574,9 @@ export default function RadalyXDetail() {
       {/* ─────────────────────────────────────────
           CTA
       ───────────────────────────────────────── */}
-      <section className="py-20 px-6 sm:px-12 bg-surface border-t border-edge">
+      <section className="py-14 px-6 sm:px-12 bg-surface border-t border-edge">
 
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
 
           <h2 className="text-3xl font-heading font-bold text-ink mb-5">
             Interested in RadalyX?
@@ -608,7 +591,7 @@ export default function RadalyXDetail() {
 
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-brand-teal text-ink rounded-full font-body font-medium text-sm hover:bg-brand-light transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#2F4F45] text-white rounded-lg font-body font-medium text-sm shadow-md hover:bg-[#5F0F12] hover:shadow-lg transition-all"
             >
               Contact Yantriq
             </Link>

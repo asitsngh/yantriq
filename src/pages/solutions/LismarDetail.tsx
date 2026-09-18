@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { gsap } from '../../lib/gsap';
 
 import lismarLogo from '../../assets/lismar_logo1.webp';
@@ -47,40 +47,35 @@ export default function LismarDetail() {
     <div ref={pageRef} className="bg-canvas text-ink">
 
       {/* ── HERO ── */}
-      <section className="lm-hero relative h-[70vh] min-h-[500px] overflow-hidden">
-        <div className="lm-hero-bg absolute inset-0 scale-[1.1]">
-          <img src={heroBg} alt="" className="w-full h-full object-cover object-center" />
-          <div className="absolute inset-0 bg-gradient-to-b from-canvas/30 via-canvas/60 to-canvas" />
+      <section className="lm-hero relative min-h-[500px] overflow-hidden bg-gray-950">
+        <div className="lm-hero-bg absolute inset-y-0 right-0 w-full lg:w-3/5 scale-[1.02]">
+          <img src={heroBg} alt="" className="w-full h-full object-contain object-center" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/60 to-transparent" />
         </div>
 
-        <div className="lm-hero-content relative z-10 h-full flex flex-col justify-end px-6 sm:px-12 lg:px-16 pb-14 max-w-7xl mx-auto">
-          <Link
-            to="/solutions"
-            className="inline-flex items-center gap-2 text-ink-muted text-xs font-body uppercase tracking-widest mb-8 hover:text-ink transition-colors"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" /> Back to Solutions
-          </Link>
-
-          <div className="mb-5 h-10 flex items-center">
+        <div className="lm-hero-content relative z-10 min-h-[500px] flex items-center px-6 sm:px-12 lg:px-16 max-w-7xl mx-auto w-full">
+          <div className="max-w-xl">
+          <div className="mb-6 h-12 flex items-center">
             <img
               src={lismarLogo}
               alt="LISMAR Engineering"
-              className="max-h-full max-w-[160px] object-contain opacity-90"
+              className="max-h-full max-w-[190px] object-contain"
             />
           </div>
 
-          <p className="text-ink-muted text-xs uppercase tracking-widest font-body mb-2">
+          <p className="text-white/80 text-xs uppercase tracking-widest font-body mb-3">
             Roll Inspection Systems
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-ink leading-none">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold text-white leading-none">
             LISMAR Engineering BV
           </h1>
-          <p className="text-ink-muted text-sm font-body mt-2">The Netherlands</p>
+          <p className="text-white/80 text-sm font-body mt-3">The Netherlands</p>
+          </div>
         </div>
       </section>
 
       {/* ── OVERVIEW ── */}
-      <section className="py-20 px-6 sm:px-12 lg:px-16 bg-surface border-b border-edge">
+      <section className="py-12 lg:py-16 px-6 sm:px-12 lg:px-16 bg-surface border-b border-edge">
         <div className="max-w-4xl mx-auto">
           <p className="text-ink-muted text-xs uppercase tracking-widest font-body mb-5">Company Overview</p>
           <div className="space-y-4 text-ink-muted font-body text-base leading-relaxed">
@@ -98,10 +93,10 @@ export default function LismarDetail() {
       </section>
 
       {/* ── PRODUCT ── */}
-      <section className="lm-content py-20 lg:py-28 px-6 sm:px-12 lg:px-16">
+      <section className="lm-content py-14 lg:py-20 px-6 sm:px-12 lg:px-16">
         <div className="max-w-7xl mx-auto">
           <p className="text-ink-muted text-xs uppercase tracking-widest font-body mb-4">Product Range</p>
-          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-16 leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-10 leading-tight">
             Core Product Category
           </h2>
 
@@ -175,7 +170,7 @@ export default function LismarDetail() {
 
       {/* ── CTA ── */}
       <section className="py-20 px-6 sm:px-12 border-t border-edge">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-heading font-bold text-ink mb-5">Interested in LISMAR?</h2>
           <p className="text-ink-muted font-body text-sm mb-8 leading-relaxed">
             Contact Yantriq to discuss your roll inspection needs, or visit the LISMAR website for detailed product information.
@@ -183,7 +178,7 @@ export default function LismarDetail() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-brand-teal text-ink rounded-full font-body font-medium text-sm hover:bg-brand-light transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#2F4F45] text-white rounded-lg font-body font-medium text-sm shadow-md hover:bg-[#5F0F12] hover:shadow-lg transition-all"
             >
               Contact Yantriq
             </Link>

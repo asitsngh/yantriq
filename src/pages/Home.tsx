@@ -1,45 +1,57 @@
-import { ArrowRight, Sparkles, Shield, Zap, TrendingUp, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Sparkles, Shield, Zap, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { gsap } from '../lib/gsap';
 import Card from '../components/Card';
 import surfaceWave from '../assets/Surfacewave-Product-Slide-1-1.jpg';
-import immersionInspection from '../assets/immersion-inspection.jpg'
-import comexInstrument from '../assets/MSX2-1024x7842.jpg'
-import ImageSlider from '../components/ImageSlider';
+import immersionInspection from '../assets/immersion-inspection.jpg';
+import comexInstrument from '../assets/MSX2-1024x7842.jpg';
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const pageRef = useRef<HTMLDivElement>(null);
 
-  const slides = [
-    {
-      image: immersionInspection,
-      title: 'Scanmaster-Fully Automated Advanced Ultrasonic C Scan Machines',
-    },
-    {
-      image: surfaceWave,
-      title: 'LISMAR-Most Advanced Fully Automated Roll Inspection System for Rolling Mills',
-    },
-    {
-      image: comexInstrument,
-      title: 'Comex-XRT Based Full Automated Dry Beneficiation and Sorting of Minerals, Ores, Coals etc.',
-    },
-  ];
-
-  // Auto-advance slides every 5 seconds
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [slides.length]);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) return;
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
+    const ctx = gsap.context(() => {
+      gsap.from('.hero-copy > *', {
+        opacity: 0,
+        y: 26,
+        duration: 0.7,
+        ease: 'power3.out',
+        stagger: 0.12,
+      });
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+      gsap.from('.stats-block', {
+        opacity: 0,
+        y: 24,
+        duration: 0.7,
+        ease: 'power2.out',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '.stats-section',
+          start: 'top 80%',
+          once: true,
+        },
+      });
+
+      gsap.from('.feature-card', {
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        ease: 'power2.out',
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: '.features-section',
+          start: 'top 80%',
+          once: true,
+        },
+      });
+    }, pageRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const features = [
     {
@@ -71,12 +83,12 @@ export default function Home() {
   ];
 
   return (
-    <div className="overflow-hidden">
+    <div ref={pageRef} className="overflow-hidden">
       <section className="relative bg-gradient-to-br from-[rgba(47,79,69,0.03)] via-white to-[rgba(95,15,18,0.03)] py-20 lg:py-32">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+            <div className="hero-copy space-y-8">
               <div className="inline-flex items-center space-x-2 bg-[rgba(47,79,69,0.08)] text-[#2F4F45] px-4 py-2 rounded-full text-sm font-medium">
                 <Sparkles className="w-4 h-4" />
                 <span>Next-Generation NDT Solutions</span>
@@ -110,24 +122,43 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <ImageSlider
-              interval={5000}
-              slides={[
-                { image: surfaceWave, title: "Scanmaster – Fully Automated Ultrasonic C-Scan Systems" },
-                { image: immersionInspection, title: "LISMAR – Advanced Roll Inspection Systems" },
-                { image: comexInstrument, title: "Comex – XRT-Based Automated Sorting & Beneficiation" },
-              ]}
-            />
+            <div className="relative mx-auto max-w-[500px] w-full">
+              <div className="absolute inset-5 rounded-[2rem] bg-gradient-to-r from-[#2F4F45]/15 to-[#5F0F12]/15 blur-3xl" />
+              <div className="relative grid grid-cols-2 gap-4">
+                <div className="col-span-2 overflow-hidden rounded-[1.75rem] border border-white/70 bg-white p-2 shadow-2xl">
+                  <img
+                    src={surfaceWave}
+                    alt="Industrial inspection system"
+                    className="h-52 w-full rounded-[1.2rem] object-cover md:h-64"
+                  />
+                </div>
 
+                <div className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white p-2 shadow-xl">
+                  <img
+                    src={immersionInspection}
+                    alt="Ultrasonic inspection equipment"
+                    className="h-36 w-full rounded-[1.1rem] object-cover md:h-40"
+                  />
+                </div>
+
+                <div className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white p-2 shadow-xl">
+                  <img
+                    src={comexInstrument}
+                    alt="Mineral sorting system"
+                    className="h-36 w-full rounded-[1.1rem] object-cover md:h-40"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="stats-section py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] place-items-center">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="stats-block text-center">
                 <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] bg-clip-text text-transparent mb-2">
                   {stat.value}
                 </div>
@@ -138,7 +169,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-32 bg-gray-50">
+      <section className="features-section py-20 lg:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -151,11 +182,11 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <Card key={index} hover>
-                <div className="text-[#2F4F45] mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <div className="feature-card text-[#2F4F45] mb-4">{feature.icon}</div>
+                <h3 className="feature-card text-xl font-semibold text-gray-900 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <p className="feature-card text-gray-600">{feature.description}</p>
               </Card>
             ))}
           </div>

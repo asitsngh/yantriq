@@ -144,15 +144,16 @@ export default function Comex() {
         </ul>
       </section>
 
-      {/* CTA */}
-      <a
-        href="https://comex-group.com/#more"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 text-[#2F4F45] font-medium hover:underline"
-      >
-        Explore Comex Solutions →
-      </a>
+      <section className="bg-gray-50 border-t border-gray-200 rounded-xl py-12 px-6 text-center">
+        <h2 className="text-3xl font-bold text-[#2F4F45] mb-5">Interested in Comex?</h2>
+        <p className="text-gray-600 max-w-3xl mx-auto mb-8">
+          Contact Yantriq to discuss your mineral sorting requirements, or visit the Comex website for product details.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" className="inline-flex items-center justify-center px-7 py-3.5 bg-[#2F4F45] text-white rounded-lg font-medium shadow-md hover:bg-[#5F0F12] hover:shadow-lg transition-all">Contact Yantriq</a>
+          <a href="https://comex-group.com/#more" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-7 py-3.5 border border-[#2F4F45] text-[#2F4F45] rounded-lg font-medium hover:bg-[#2F4F45] hover:text-white transition-colors">Comex Website</a>
+        </div>
+      </section>
 
     </div>
   );

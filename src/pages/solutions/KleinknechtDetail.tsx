@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { gsap } from '../../lib/gsap';
 
 import kleinknechtLogo from '../../assets/kleinknecht_logo.webp';
@@ -41,38 +41,26 @@ export default function KleinknechtDetail() {
     <div ref={pageRef} className="bg-canvas text-ink">
 
       {/* ── HERO ── */}
-      <section className="relative pt-36 pb-20 px-6 sm:px-12 lg:px-16 overflow-hidden">
-        {/* Gradient bg */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/8 via-canvas to-brand-burgundy/5 pointer-events-none" />
+      <section className="kk-hero relative min-h-[500px] overflow-hidden bg-gray-950">
+        <div className="absolute inset-y-0 right-0 w-full lg:w-3/5 scale-[1.02]">
+          <img src={edtImg1} alt="Kleinknecht EDT machine" className="w-full h-full object-contain object-center" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/60 to-transparent" />
+        </div>
 
-        <div className="kk-hero-content relative z-10 max-w-7xl mx-auto">
-          <Link
-            to="/solutions"
-            className="inline-flex items-center gap-2 text-ink-muted text-xs font-body uppercase tracking-widest mb-10 hover:text-ink transition-colors"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" /> Back to Solutions
-          </Link>
-
-          <div className="mb-6 h-10 flex items-center">
-            <img
-              src={kleinknechtLogo}
-              alt="Kleinknecht"
-              className="max-h-full max-w-[160px] object-contain opacity-90"
-            />
+        <div className="kk-hero-content relative z-10 min-h-[500px] flex items-center px-6 sm:px-12 lg:px-16 max-w-7xl mx-auto w-full">
+          <div className="max-w-xl">
+            <div className="mb-6 h-12 flex items-center">
+              <img src={kleinknechtLogo} alt="Kleinknecht" className="max-h-full max-w-[190px] object-contain" />
+            </div>
+            <p className="text-white/80 text-xs uppercase tracking-widest font-body mb-3">Electric Discharge Texturing</p>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-heading font-bold text-white leading-none mb-3">Kleinknecht</h1>
+            <p className="text-white/80 text-sm font-body">Germany</p>
           </div>
-
-          <p className="text-ink-muted text-xs uppercase tracking-widest font-body mb-3">
-            Electric Discharge Texturing
-          </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-heading font-bold text-ink leading-none mb-3">
-            Kleinknecht
-          </h1>
-          <p className="text-ink-muted text-sm font-body">Germany</p>
         </div>
       </section>
 
       {/* ── OVERVIEW ── */}
-      <section className="kk-section py-20 px-6 sm:px-12 lg:px-16 bg-surface border-y border-edge">
+      <section className="kk-section py-12 lg:py-16 px-6 sm:px-12 lg:px-16 bg-surface border-y border-edge">
         <div className="max-w-4xl mx-auto">
           <p className="text-ink-muted text-xs uppercase tracking-widest font-body mb-5">Company Overview</p>
           <div className="space-y-4 text-ink-muted font-body text-base leading-relaxed">
@@ -90,7 +78,7 @@ export default function KleinknechtDetail() {
       </section>
 
       {/* ── EDT TECHNOLOGY ── */}
-      <section className="py-20 lg:py-28 px-6 sm:px-12 lg:px-16">
+      <section className="py-14 lg:py-20 px-6 sm:px-12 lg:px-16">
         <div className="max-w-7xl mx-auto">
           <p className="text-ink-muted text-xs uppercase tracking-widest font-body mb-4">Technology</p>
           <h2 className="text-3xl lg:text-4xl font-heading font-bold text-ink mb-16 leading-tight">
@@ -166,8 +154,8 @@ export default function KleinknechtDetail() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="kk-section py-20 px-6 sm:px-12 border-t border-edge">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="kk-section py-14 px-6 sm:px-12 border-t border-edge">
+        <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-heading font-bold text-ink mb-5">Interested in Kleinknecht?</h2>
           <p className="text-ink-muted font-body text-sm mb-8 leading-relaxed">
             Contact Yantriq to discuss EDT solutions for your rolling mill, or visit the Kleinknecht website for full technical specifications.
@@ -175,7 +163,7 @@ export default function KleinknechtDetail() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-brand-teal text-ink rounded-full font-body font-medium text-sm hover:bg-brand-light transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#2F4F45] text-white rounded-lg font-body font-medium text-sm shadow-md hover:bg-[#5F0F12] hover:shadow-lg transition-all"
             >
               Contact Yantriq
             </Link>

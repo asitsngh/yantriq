@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { gsap } from '../lib/gsap';
 import ScanMaster from './solutions/ScanMaster';
 import LISMAR from './solutions/Lismar';
 import Comex from './solutions/Comex';
 import Kleinknecht from './solutions/Kleinknecht';
+import RadalyX from './solutions/RadalyX';
 
 /* ================= OEM MAP ================= */
 
@@ -10,12 +12,11 @@ const OEMS_BY_SOLUTION = {
   ndt: [
     { key: 'scanmaster', label: 'ScanMaster Systems Ltd.' },
     { key: 'lismar', label: 'LISMAR Engineering BV' },
+    { key: 'kleinknecht', label: 'Kleinknecht' },
+    { key: 'radalytica', label: 'Radalytica' },
   ],
   mineral: [
     { key: 'comex', label: 'Comex AS' },
-  ],
-  edt: [
-    { key: 'kleinknecht', label: 'Kleinknecht' },
   ],
 } as const;
 
@@ -30,6 +31,36 @@ export default function Solutions() {
   const [activeOEM, setActiveOEM] =
     useState<OEMKey>('scanmaster');
 
+  useEffect(() => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      gsap.from('.solutions-hero-copy > *', {
+        opacity: 0,
+        y: 24,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: 'power2.out',
+      });
+
+      gsap.from('.solution-panel', {
+        opacity: 0,
+        y: 24,
+        duration: 0.6,
+        stagger: 0.08,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.solution-panel-wrap',
+          start: 'top 80%',
+          once: true,
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   /* ================= OEM RENDERER ================= */
 
   const renderOEM = () => {
@@ -42,6 +73,8 @@ export default function Solutions() {
         return <Comex />;
       case 'kleinknecht':
         return <Kleinknecht />;
+      case 'radalytica':
+        return <RadalyX />;
       default:
         return null;
     }
@@ -55,7 +88,7 @@ export default function Solutions() {
         className="bg-gradient-to-br from-[rgba(47,79,69,0.03)] via-white to-[rgba(95,15,18,0.03)]
                    py-20 lg:pt-32 lg:pb-16"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="solutions-hero-copy max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold text-[#2F4F45] mb-6">
             Industrial Solutions
           </h1>
@@ -73,9 +106,8 @@ export default function Solutions() {
             <div className="bg-gray-50 border border-gray-200 rounded-xl px-6">
               <div className="flex gap-10 border-b border-gray-200">
                 {[
-                  { key: 'ndt', label: 'NDT Ultrasonic Inspection Systems' },
+                  { key: 'ndt', label: 'NDT Inspection Systems' },
                   { key: 'mineral', label: 'Mineral Sorting Solutions' },
-                  { key: 'edt', label: 'Electric Discharge Texturing (EDT)' },
                 ].map((tab) => (
                   <button
                     key={tab.key}
@@ -101,12 +133,12 @@ export default function Solutions() {
       </section>
 
       {/* ================= Content ================= */}
-      <section className="pt-12 pb-24">
+      <section className="solution-panel-wrap pt-12 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
 
             {/* ================= Left OEM Nav ================= */}
-            <aside className="lg:col-span-1">
+            <aside className="solution-panel lg:col-span-1">
               <div
                 className="sticky top-[200px]
                            bg-gray-50 border border-gray-200 rounded-xl p-4 space-y-2"
@@ -128,7 +160,7 @@ export default function Solutions() {
             </aside>
 
             {/* ================= Right Content Pane ================= */}
-            <div className="lg:col-span-3">
+            <div className="solution-panel lg:col-span-3">
               {renderOEM()}
             </div>
 
