@@ -6,6 +6,8 @@ import Card from '../components/Card';
 import surfaceWave from '../assets/Surfacewave-Product-Slide-1-1.jpg';
 import immersionInspection from '../assets/immersion-inspection.jpg';
 import comexInstrument from '../assets/MSX2-1024x7842.jpg';
+import kleinknechtInstrument from '../assets/kl_edt.png';
+import radalyxInstrument from '../assets/rad1.png';
 
 export default function Home() {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -146,6 +148,22 @@ export default function Home() {
                     src={comexInstrument}
                     alt="Mineral sorting system"
                     className="h-36 w-full rounded-[1.1rem] object-cover md:h-40"
+                  />
+                </div>
+
+                <div className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white p-2 shadow-xl">
+                  <img
+                    src={kleinknechtInstrument}
+                    alt="Kleinknecht EDT system"
+                    className="h-36 w-full rounded-[1.1rem] object-cover md:h-40"
+                  />
+                </div>
+
+                <div className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white p-2 shadow-xl">
+                  <img
+                    src={radalyxInstrument}
+                    alt="Radalytica RadalyX inspection system"
+                    className="h-36 w-full rounded-[1.1rem] bg-gray-50 p-1 object-contain md:h-40"
                   />
                 </div>
               </div>

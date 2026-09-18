@@ -103,6 +103,17 @@ export default function Footer() {
                   <ExternalLink className="w-3.5 h-3.5 opacity-70" />
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://radalytica.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-2 py-1 rounded hover:bg-white/10 transition-colors"
+                >
+                  Radalytica
+                  <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+                </a>
+              </li>
             </ul>
           </div>
 
