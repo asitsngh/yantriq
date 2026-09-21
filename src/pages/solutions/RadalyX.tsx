@@ -18,7 +18,7 @@ export default function RadalyX() {
   return (
     <div className="space-y-16">
       <div className="flex items-center gap-6">
-        <div className="w-40 h-28 flex items-center justify-center bg-gray-950 rounded-xl border border-gray-200 px-4">
+        <div className="w-40 h-28 flex items-center justify-center bg-gray-900 rounded-xl border border-gray-200 px-4">
           <img src={radalyticaLogo} alt="Radalytica" className="object-contain max-h-full" />
         </div>
         <div>

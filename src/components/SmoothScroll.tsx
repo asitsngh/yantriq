@@ -20,7 +20,14 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     gsap.ticker.add(rafCb);
     gsap.ticker.lagSmoothing(0);
 
+    const stopSmoothScroll = () => lenis.stop();
+    const startSmoothScroll = () => lenis.start();
+    window.addEventListener('smooth-scroll:stop', stopSmoothScroll);
+    window.addEventListener('smooth-scroll:start', startSmoothScroll);
+
     return () => {
+      window.removeEventListener('smooth-scroll:stop', stopSmoothScroll);
+      window.removeEventListener('smooth-scroll:start', startSmoothScroll);
       gsap.ticker.remove(rafCb);
       lenis.destroy();
       lenisRef.current = null;

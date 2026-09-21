@@ -3,11 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import { gsap } from '../lib/gsap';
 import Card from '../components/Card';
-import surfaceWave from '../assets/Surfacewave-Product-Slide-1-1.jpg';
-import immersionInspection from '../assets/immersion-inspection.jpg';
-import comexInstrument from '../assets/MSX2-1024x7842.jpg';
-import kleinknechtInstrument from '../assets/kl_edt.png';
-import radalyxInstrument from '../assets/rad1.png';
+import yantriqCollage from '../assets/yantriq_collage.png';
 
 export default function Home() {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -93,18 +89,18 @@ export default function Home() {
             <div className="hero-copy space-y-8">
               <div className="inline-flex items-center space-x-2 bg-[rgba(47,79,69,0.08)] text-[#2F4F45] px-4 py-2 rounded-full text-sm font-medium">
                 <Sparkles className="w-4 h-4" />
-                <span>Next-Generation NDT Solutions</span>
+                <span>Fully Automated NDT Solutions</span>
               </div>
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-5xl lg:text-5.5xl font-bold text-gray-900 leading-tight">
                 <span className="bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] bg-clip-text text-transparent">
-                  Precision-Driven. 
+                  Advanced <br/>NDT Solutions
                 </span>
               </h1>
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h2 className="text-3xl lg:text-3xl font-bold text-gray-900 leading-tight">
                 <span className="bg-gradient-to-r from-[#2F4F45] to-[#5F0F12] bg-clip-text text-transparent">
-                  Quality-Assured.
+                  For the Next Generation of Inspection
                 </span>
-              </h1>
+              </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
                 Enabling industries to achieve safer, smarter, and more efficient operations with cutting-edge non-destructive testing systems for critical industrial applications.
               </p>
@@ -124,49 +120,13 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="relative mx-auto max-w-[500px] w-full">
+            <div className="relative mx-auto w-full max-w-[520px]">
               <div className="absolute inset-5 rounded-[2rem] bg-gradient-to-r from-[#2F4F45]/15 to-[#5F0F12]/15 blur-3xl" />
-              <div className="relative grid grid-cols-2 gap-4">
-                <div className="col-span-2 overflow-hidden rounded-[1.75rem] border border-white/70 bg-white p-2 shadow-2xl">
-                  <img
-                    src={surfaceWave}
-                    alt="Industrial inspection system"
-                    className="h-52 w-full rounded-[1.2rem] object-cover md:h-64"
-                  />
-                </div>
-
-                <div className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white p-2 shadow-xl">
-                  <img
-                    src={immersionInspection}
-                    alt="Ultrasonic inspection equipment"
-                    className="h-36 w-full rounded-[1.1rem] object-cover md:h-40"
-                  />
-                </div>
-
-                <div className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white p-2 shadow-xl">
-                  <img
-                    src={comexInstrument}
-                    alt="Mineral sorting system"
-                    className="h-36 w-full rounded-[1.1rem] object-cover md:h-40"
-                  />
-                </div>
-
-                <div className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white p-2 shadow-xl">
-                  <img
-                    src={kleinknechtInstrument}
-                    alt="Kleinknecht EDT system"
-                    className="h-36 w-full rounded-[1.1rem] object-cover md:h-40"
-                  />
-                </div>
-
-                <div className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white p-2 shadow-xl">
-                  <img
-                    src={radalyxInstrument}
-                    alt="Radalytica RadalyX inspection system"
-                    className="h-36 w-full rounded-[1.1rem] bg-gray-50 p-1 object-contain md:h-40"
-                  />
-                </div>
-              </div>
+              <img
+                src={yantriqCollage}
+                alt="Yantriq inspection and sorting solutions collage"
+                className="relative block h-auto w-full object-contain"
+              />
             </div>
           </div>
         </div>
@@ -214,7 +174,7 @@ export default function Home() {
       <section className="py-20 lg:py-32 bg-gradient-to-br from-[#2F4F45] to-[#5F0F12] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Ready to advance inspection excellence?
+            Ready for advanced inspection excellence?
           </h2>
           <p className="text-xl mb-8 text-white">
             Work with Yantriq to implement globally recognized NDT solutions.

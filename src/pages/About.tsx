@@ -70,6 +70,19 @@ export default function About() {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    if (selectedPartner === null) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.dispatchEvent(new Event('smooth-scroll:stop'));
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.dispatchEvent(new Event('smooth-scroll:start'));
+    };
+  }, [selectedPartner]);
+
   const values = [
     {
       icon: <Target className="w-10 h-10" />,
@@ -376,11 +389,12 @@ export default function About() {
 
       {/* Modal Popup */}
       {selectedPartner !== null && (
-        <div className="fixed inset-0 bg-black/50 z-50 p-4 sm:p-6 overflow-y-auto">
+        <div className="fixed inset-0 bg-black/50 z-50 p-4 sm:p-6 overflow-hidden">
           <div className="flex min-h-full items-center justify-center">
             <div
+              data-lenis-prevent
               className="bg-white rounded-2xl max-w-4xl w-full
-                        max-h-[90vh] overflow-y-auto
+                        max-h-[90vh] overflow-y-auto overscroll-contain
                         relative shadow-xl"
             >
               {/* Close button */}

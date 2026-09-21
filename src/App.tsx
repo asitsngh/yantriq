@@ -10,10 +10,11 @@ const About = lazy(() => import('./pages/About'));
 const Solutions = lazy(() => import('./pages/Solutions'));
 const Contact = lazy(() => import('./pages/Contact'));
 const RadalyXDetail = lazy(() => import('./pages/solutions/RadalyXDetail'));
+const routerBasename = import.meta.env.VITE_BASE_PATH?.replace(/\/$/, '') || undefined;
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={routerBasename}>
       <SmoothScroll>
         <Navbar />
 

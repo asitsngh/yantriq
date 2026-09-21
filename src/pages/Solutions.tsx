@@ -10,13 +10,13 @@ import RadalyX from './solutions/RadalyX';
 
 const OEMS_BY_SOLUTION = {
   ndt: [
-    { key: 'scanmaster', label: 'ScanMaster Systems Ltd.' },
-    { key: 'lismar', label: 'LISMAR Engineering BV' },
-    { key: 'kleinknecht', label: 'Kleinknecht' },
-    { key: 'radalytica', label: 'Radalytica' },
+    { key: 'scanmaster', label: 'ScanMaster Systems Ltd.', subheading: 'Ultrasonic Testing Solutions' },
+    { key: 'lismar', label: 'LISMAR Engineering BV', subheading: 'Roll Inspection Solutions' },
+    { key: 'kleinknecht', label: 'Kleinknecht', subheading: 'EDT Machines' },
+    { key: 'radalytica', label: 'Radalytica', subheading: 'X-Ray CT/RT Solutions' },
   ],
   mineral: [
-    { key: 'comex', label: 'Comex AS' },
+    { key: 'comex', label: 'Comex AS', subheading: 'Mineral Sorting Solutions' },
   ],
 } as const;
 
@@ -153,7 +153,10 @@ export default function Solutions() {
                         : 'text-gray-700 hover:bg-white'
                     }`}
                   >
-                    {oem.label}
+                    <span className="block font-medium">{oem.label}</span>
+                    <span className="mt-1 block text-xs text-gray-500">
+                      {oem.subheading}
+                    </span>
                   </button>
                 ))}
               </div>
